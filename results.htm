@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ARENA.GG | Result Submission Portal</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;900&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface-variant": "#262626",
+                        "primary-fixed": "#00d2fd",
+                        "on-tertiary": "#290067",
+                        "on-secondary": "#5b4b00",
+                        "on-primary-fixed": "#002c37",
+                        "on-primary-fixed-variant": "#004c5d",
+                        "background": "#0e0e0e",
+                        "surface": "#0e0e0e",
+                        "secondary-fixed-dim": "#efc900",
+                        "on-tertiary-fixed-variant": "#4700a7",
+                        "on-error-container": "#ffa8a3",
+                        "on-background": "#ffffff",
+                        "tertiary-fixed": "#bda1ff",
+                        "primary-container": "#00d2fd",
+                        "error": "#ff716c",
+                        "surface-tint": "#6dddff",
+                        "surface-dim": "#0e0e0e",
+                        "on-secondary-fixed-variant": "#665500",
+                        "on-error": "#490006",
+                        "surface-container-highest": "#262626",
+                        "inverse-on-surface": "#565555",
+                        "surface-container-low": "#131313",
+                        "error-dim": "#d7383b",
+                        "secondary": "#ffd709",
+                        "on-surface-variant": "#adaaaa",
+                        "on-primary-container": "#004352",
+                        "on-surface": "#ffffff",
+                        "error-container": "#9f0519",
+                        "tertiary-dim": "#874cff",
+                        "primary-dim": "#00c3eb",
+                        "tertiary-container": "#7000ff",
+                        "outline": "#767575",
+                        "tertiary": "#ac89ff",
+                        "surface-container-lowest": "#000000",
+                        "on-secondary-fixed": "#453900",
+                        "on-secondary-container": "#fff7e6",
+                        "secondary-dim": "#efc900",
+                        "on-tertiary-container": "#f8f1ff",
+                        "surface-container": "#1a1919",
+                        "tertiary-fixed-dim": "#b190ff",
+                        "secondary-fixed": "#ffd709",
+                        "inverse-surface": "#fcf9f8",
+                        "surface-container-high": "#201f1f",
+                        "on-tertiary-fixed": "#1f0052",
+                        "inverse-primary": "#00687e",
+                        "outline-variant": "#484847",
+                        "secondary-container": "#705d00",
+                        "surface-bright": "#2c2c2c",
+                        "on-primary": "#004c5e",
+                        "primary-fixed-dim": "#00c3eb",
+                        "primary": "#6dddff"
+                    },
+                    fontFamily: {
+                        "headline": ["Space Grotesk"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .cyber-glow {
+            box-shadow: 0 0 20px rgba(109, 221, 255, 0.2);
+        }
+        .kinetic-gradient {
+            background: linear-gradient(135deg, #6dddff 0%, #00d2fd 100%);
+        }
+        .text-glow {
+            text-shadow: 0 0 10px rgba(109, 221, 255, 0.5);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body selection:bg-primary/30">
+<!-- Top Navigation Bar -->
+<nav class="fixed top-0 w-full z-50 bg-[#0e0e0e]/80 backdrop-blur-xl border-b border-white/10 flex justify-between items-center px-6 h-16 shadow-[0_4px_30px_rgba(0,0,0,0.5)]">
+<div class="flex items-center gap-8">
+<span class="text-2xl font-black italic text-[#00D4FF] drop-shadow-[0_0_10px_rgba(0,212,255,0.4)] font-headline tracking-wider uppercase">ARENA.GG</span>
+<div class="hidden md:flex gap-6">
+<a class="font-headline uppercase tracking-wider text-sm font-bold text-white/60 hover:text-white transition-colors" href="#">Tournaments</a>
+<a class="font-headline uppercase tracking-wider text-sm font-bold text-white/60 hover:text-white transition-colors" href="#">Teams</a>
+<a class="font-headline uppercase tracking-wider text-sm font-bold text-white/60 hover:text-white transition-colors" href="#">Recruit</a>
+<a class="font-headline uppercase tracking-wider text-sm font-bold text-white/60 hover:text-white transition-colors" href="#">Vault</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-white/60 hover:bg-white/5 transition-all duration-300 rounded-lg">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<div class="h-8 w-8 rounded-full bg-surface-container-high border border-primary/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-sm" data-icon="account_circle">account_circle</span>
+</div>
+</div>
+</nav>
+<!-- Side Navigation -->
+<aside class="fixed left-0 top-16 h-[calc(100vh-64px)] w-64 bg-[#131313]/90 backdrop-blur-2xl border-r border-white/5 hidden md:flex flex-col py-6">
+<div class="px-6 mb-8">
+<div class="flex items-center gap-3 p-3 bg-surface-container-high rounded-xl">
+<div class="w-10 h-10 rounded-lg overflow-hidden bg-primary/10 border border-primary/20">
+<img alt="Pro Player Avatar" class="w-full h-full object-cover" data-alt="Cyberpunk style esports player profile avatar with neon accents and futuristic headset" src="https://lh3.googleusercontent.com/aida-public/AB6AXuARTseMq9RfYarwz8ENA7z4pM8ArGxNkV9BKWT0LQ8EMsytFv5PdQSmpd-wz4NSwS6IFGbaoWtyP5drEmczEbM5wbWnYyrQ1ZxD9DyH7uVr4SPk07OnQGMDGbMjnimSSJcsvyn5a5cDRhjXPR-3ms8jBG31tdmiFCC31siGNedVdBVN3uxKmjV6uxhf5R2FIQrR-7TzeMGQIWqkyC-k_3ALu-hdjtPeTgY87-ejF-XZmm8uuKj-Ey_xsJ2ajOAPJ70OWW6_TrLgfUan"/>
+</div>
+<div>
+<p class="font-headline text-sm font-bold text-white">CYBER_ELITE</p>
+<p class="text-[10px] text-primary uppercase tracking-tighter">Rank: Immortal</p>
+</div>
+</div>
+</div>
+<div class="flex-1 flex flex-col">
+<a class="text-white/40 hover:text-white/80 py-3 px-6 flex items-center gap-3 transition-all hover:bg-white/5 group" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-headline text-sm font-medium">Dashboard</span>
+</a>
+<a class="text-white/40 hover:text-white/80 py-3 px-6 flex items-center gap-3 transition-all hover:bg-white/5" href="#">
+<span class="material-symbols-outlined" data-icon="swords">swords</span>
+<span class="font-headline text-sm font-medium">Active Matches</span>
+</a>
+<a class="text-white/40 hover:text-white/80 py-3 px-6 flex items-center gap-3 transition-all hover:bg-white/5" href="#">
+<span class="material-symbols-outlined" data-icon="group_add">group_add</span>
+<span class="font-headline text-sm font-medium">Team Finder</span>
+</a>
+<a class="bg-[#00D4FF]/10 text-[#00D4FF] border-l-4 border-[#00D4FF] py-3 px-6 flex items-center gap-3" href="#">
+<span class="material-symbols-outlined" data-icon="shutter_speed">shutter_speed</span>
+<span class="font-headline text-sm font-medium uppercase">AI Scan Portal</span>
+</a>
+<a class="text-white/40 hover:text-white/80 py-3 px-6 flex items-center gap-3 transition-all hover:bg-white/5" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-headline text-sm font-medium">Settings</span>
+</a>
+</div>
+<div class="mt-auto px-4 pb-4">
+<button class="w-full py-3 kinetic-gradient text-on-primary font-headline font-bold text-xs tracking-widest uppercase rounded-sm cyber-glow hover:scale-[1.02] transition-transform">
+                REGISTER TEAM
+            </button>
+<div class="mt-6 flex flex-col gap-1 border-t border-white/5 pt-4">
+<a class="text-white/40 hover:text-white/80 py-2 px-2 flex items-center gap-3 text-xs" href="#">
+<span class="material-symbols-outlined text-sm" data-icon="help">help</span> Support
+                </a>
+<a class="text-white/40 hover:text-white/80 py-2 px-2 flex items-center gap-3 text-xs" href="#">
+<span class="material-symbols-outlined text-sm" data-icon="logout">logout</span> Logout
+                </a>
+</div>
+</div>
+</aside>
+<!-- Main Canvas -->
+<main class="md:ml-64 pt-24 pb-24 px-6 md:px-12 min-h-screen">
+<!-- Header Section -->
+<header class="mb-12">
+<div class="flex items-center gap-2 mb-2">
+<div class="h-1 w-8 bg-primary"></div>
+<span class="text-primary font-headline text-xs font-bold tracking-[0.2em] uppercase">Security Level: Verified</span>
+</div>
+<h1 class="text-4xl md:text-5xl font-headline font-black text-white uppercase tracking-tight leading-none">
+                Result Submission <span class="text-primary text-glow italic">Portal</span>
+</h1>
+<p class="text-on-surface-variant max-w-xl mt-4 font-body text-sm leading-relaxed">
+                Upload high-resolution match end-screens for real-time neural processing. Our AI verifies K/D ratios, objective captures, and victory conditions automatically.
+            </p>
+</header>
+<!-- Asymmetric Layout Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+<!-- Upload Zone & Analysis (Left Column) -->
+<div class="lg:col-span-7 space-y-8">
+<!-- Drop Zone -->
+<div class="relative group">
+<div class="absolute -inset-1 bg-primary/20 rounded-xl blur-lg opacity-25 group-hover:opacity-100 transition duration-1000"></div>
+<div class="relative bg-surface-container-low border-2 border-dashed border-white/10 rounded-xl p-12 flex flex-col items-center justify-center transition-all hover:border-primary/40 hover:bg-surface-container">
+<div class="w-20 h-20 rounded-full bg-primary/5 flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-4xl text-primary animate-pulse" data-icon="cloud_upload">cloud_upload</span>
+</div>
+<h3 class="font-headline text-xl font-bold text-white uppercase tracking-wider mb-2">Drop Screenshot Here</h3>
+<p class="text-on-surface-variant text-sm mb-8">Supported formats: JPG, PNG, WEBP (Max 10MB)</p>
+<button class="px-8 py-3 bg-white/5 border border-white/10 text-white font-headline font-bold text-xs uppercase tracking-widest hover:bg-white/10 transition-all">
+                            Browse Local Files
+                        </button>
+</div>
+</div>
+<!-- AI Scanning Status -->
+<div class="bg-surface-container-high rounded-xl p-6 border-l-4 border-primary">
+<div class="flex justify-between items-center mb-4">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary animate-spin" data-icon="shutter_speed">shutter_speed</span>
+<span class="font-headline font-bold text-sm text-white uppercase tracking-widest">Neural Analysis Active</span>
+</div>
+<span class="text-primary font-headline text-xs font-bold">78% COMPLETE</span>
+</div>
+<div class="w-full bg-surface-container-lowest h-2 rounded-full overflow-hidden mb-6">
+<div class="h-full kinetic-gradient w-[78%] shadow-[0_0_10px_#6dddff]"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+<div class="bg-surface-container-lowest p-3 rounded border border-white/5">
+<p class="text-[10px] text-white/40 uppercase font-bold mb-1">Current Task</p>
+<p class="text-xs text-primary font-headline font-medium">Analyzing Kills...</p>
+</div>
+<div class="bg-surface-container-lowest p-3 rounded border border-white/5">
+<p class="text-[10px] text-white/40 uppercase font-bold mb-1">Spatial Mapping</p>
+<p class="text-xs text-white/80 font-headline font-medium">Detecting Position...</p>
+</div>
+<div class="bg-surface-container-lowest p-3 rounded border border-white/5">
+<p class="text-[10px] text-white/40 uppercase font-bold mb-1">Metadata</p>
+<p class="text-xs text-white/40 font-headline font-medium italic">Pending OCR...</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Preview & Verification (Right Column) -->
+<div class="lg:col-span-5 space-y-8">
+<!-- Preview Area -->
+<div class="bg-surface-container-low rounded-xl overflow-hidden border border-white/5 flex flex-col">
+<div class="p-4 border-b border-white/5 flex justify-between items-center">
+<span class="font-headline text-[10px] text-white/60 uppercase tracking-widest font-bold">Neural Preview Window</span>
+<div class="flex gap-1">
+<div class="w-1.5 h-1.5 rounded-full bg-error/50"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-secondary/50"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-primary/50"></div>
+</div>
+</div>
+<div class="relative aspect-video bg-black group overflow-hidden">
+<!-- Blurred Screenshot Representation -->
+<div class="absolute inset-0 grayscale contrast-125 opacity-40 blur-[2px] scale-105">
+<img alt="Game Result Screen" class="w-full h-full object-cover" data-alt="High contrast blurry screenshot of an esports game victory screen with dense UI elements and scoreboard details" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDH4j-OOQ2rsSc-SEKejCGSPnP67f3OPrUedfxxkQzcCGtB0jEzXMdNZ3E1qSNONaTv9Qp4nB8mCdeRauHARDdt3ozW3BtuRDBDQnj3SufA_ATYiiTq4x977M3OGt6axuvt6vBPR6texzb8c-QcWXKYXyG0_2Md9n2cp6pB9mcohujA3Y-u04xbtkGXn0jNszSvCB-HnJ9dwbdAtEFpvKi1Ladwr5gOAwSzZ718PDytosloaUVszPsPPkXjRh2HAQcU1ZEm8vJYQM9T"/>
+</div>
+<!-- AI Bounding Boxes (Simulated) -->
+<div class="absolute top-[15%] left-[10%] w-[25%] h-[10%] border-2 border-[#00ff9d] shadow-[0_0_8px_#00ff9d] flex flex-col">
+<span class="bg-[#00ff9d] text-black text-[8px] font-bold px-1 w-fit">PLAYER_ID</span>
+</div>
+<div class="absolute top-[40%] right-[15%] w-[30%] h-[35%] border-2 border-[#00ff9d] shadow-[0_0_8px_#00ff9d]">
+<span class="bg-[#00ff9d] text-black text-[8px] font-bold px-1 w-fit">STATS_TABLE</span>
+</div>
+<div class="absolute bottom-[20%] left-[20%] w-[15%] h-[8%] border-2 border-primary shadow-[0_0_8px_#00d2fd]">
+<span class="bg-primary text-black text-[8px] font-bold px-1 w-fit">MATCH_ID</span>
+</div>
+<!-- Scan Line Effect -->
+<div class="absolute inset-0 bg-gradient-to-b from-transparent via-primary/10 to-transparent h-20 w-full animate-[scan_3s_infinite] pointer-events-none"></div>
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="bg-surface/80 backdrop-blur-md px-4 py-2 border border-primary/20">
+<span class="font-headline text-[10px] text-primary tracking-[0.3em] font-black uppercase">PROCESSING OBJECTS</span>
+</div>
+</div>
+</div>
+<div class="p-6 space-y-4">
+<div class="flex justify-between items-end border-b border-white/5 pb-4">
+<div>
+<h4 class="text-white font-headline font-bold text-sm">MATCH_ID: #88219-X</h4>
+<p class="text-on-surface-variant text-[10px]">Map: Cyberia District | Time: 14:22</p>
+</div>
+<span class="bg-primary/10 text-primary px-2 py-0.5 rounded text-[10px] font-bold border border-primary/30 uppercase">Detected</span>
+</div>
+<div class="space-y-3">
+<div class="flex justify-between items-center p-2 bg-surface-container-high rounded border-l-2 border-secondary">
+<span class="text-xs text-white/80 font-medium">Kills Detected</span>
+<span class="text-secondary font-headline font-bold text-sm">24</span>
+</div>
+<div class="flex justify-between items-center p-2 bg-surface-container-high rounded border-l-2 border-primary">
+<span class="text-xs text-white/80 font-medium">Rank Delta</span>
+<span class="text-primary font-headline font-bold text-sm">+18 LP</span>
+</div>
+</div>
+<button class="w-full mt-4 py-4 bg-primary text-on-primary font-headline font-black text-sm tracking-[0.2em] uppercase rounded-sm shadow-[0_0_25px_rgba(109,221,255,0.4)] hover:shadow-[0_0_40px_rgba(109,221,255,0.6)] hover:scale-[1.01] transition-all relative overflow-hidden group">
+<span class="relative z-10">Submit for Verification</span>
+<div class="absolute inset-0 bg-white/20 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 skew-x-12"></div>
+</button>
+</div>
+</div>
+<!-- Guidance Note -->
+<div class="p-4 border border-outline-variant rounded-lg bg-surface-container-lowest/50">
+<div class="flex gap-3">
+<span class="material-symbols-outlined text-secondary" data-icon="info">info</span>
+<div>
+<p class="text-xs text-white font-bold mb-1 uppercase tracking-wider">Pro-Tip</p>
+<p class="text-[11px] text-on-surface-variant leading-tight italic">
+                                For faster processing, ensure the "Final Scoreboard" overlay is fully visible and not blocked by teammate avatars or chat windows.
+                            </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation (Mobile Only) -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pb-6 pt-2 bg-[#131313]/95 backdrop-blur-lg border-t border-white/10 md:hidden z-50 shadow-[0_-10px_40px_rgba(0,212,255,0.15)]">
+<a class="flex flex-col items-center justify-center text-white/40 p-2" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-label text-[10px] uppercase font-bold mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-white/40 p-2" href="#">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+<span class="font-label text-[10px] uppercase font-bold mt-1">Find</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-[#00D4FF] text-[#0e0e0e] rounded-xl p-3 shadow-[0_0_15px_rgba(0,212,255,0.5)] -mt-8" href="#">
+<span class="material-symbols-outlined" data-icon="qr_code_scanner">qr_code_scanner</span>
+</a>
+<a class="flex flex-col items-center justify-center text-white/40 p-2" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-label text-[10px] uppercase font-bold mt-1">Profile</span>
+</a>
+</nav>
+<style>
+        @keyframes scan {
+            0% { transform: translateY(-100%); }
+            100% { transform: translateY(500%); }
+        }
+    </style>
+</body></html>
