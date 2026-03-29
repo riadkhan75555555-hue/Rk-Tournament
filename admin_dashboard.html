@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "error": "#ff716c",
+              "primary-container": "#00d2fd",
+              "on-primary-fixed": "#002c37",
+              "tertiary-fixed": "#bda1ff",
+              "on-secondary-container": "#fff7e6",
+              "on-primary": "#004c5e",
+              "tertiary-dim": "#874cff",
+              "on-error-container": "#ffa8a3",
+              "on-tertiary-fixed-variant": "#4700a7",
+              "primary-dim": "#00c3eb",
+              "surface-container-high": "#201f1f",
+              "secondary-fixed": "#ffd709",
+              "error-container": "#9f0519",
+              "surface-container-low": "#131313",
+              "on-surface": "#ffffff",
+              "inverse-on-surface": "#565555",
+              "tertiary-container": "#7000ff",
+              "primary": "#6dddff",
+              "surface": "#0e0e0e",
+              "on-error": "#490006",
+              "inverse-surface": "#fcf9f8",
+              "on-secondary": "#5b4b00",
+              "background": "#0e0e0e",
+              "secondary-container": "#705d00",
+              "secondary-fixed-dim": "#efc900",
+              "outline": "#767575",
+              "outline-variant": "#484847",
+              "tertiary": "#ac89ff",
+              "on-tertiary-container": "#f8f1ff",
+              "on-tertiary-fixed": "#1f0052",
+              "surface-tint": "#6dddff",
+              "on-primary-container": "#004352",
+              "on-background": "#ffffff",
+              "surface-bright": "#2c2c2c",
+              "secondary": "#ffd709",
+              "surface-container-highest": "#262626",
+              "surface-container-lowest": "#000000",
+              "error-dim": "#d7383b",
+              "surface-variant": "#262626",
+              "secondary-dim": "#efc900",
+              "primary-fixed": "#00d2fd",
+              "tertiary-fixed-dim": "#b190ff",
+              "inverse-primary": "#00687e",
+              "on-surface-variant": "#adaaaa",
+              "on-primary-fixed-variant": "#004c5d",
+              "surface-container": "#1a1919",
+              "primary-fixed-dim": "#00c3eb",
+              "on-secondary-fixed": "#453900",
+              "surface-dim": "#0e0e0e",
+              "on-tertiary": "#290067",
+              "on-secondary-fixed-variant": "#665500"
+            },
+            fontFamily: {
+              "headline": ["Space Grotesk"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+      .kinetic-gradient {
+        background: linear-gradient(135deg, #6dddff 0%, #00d2fd 100%);
+      }
+      .glass-hud {
+        background: rgba(38, 38, 38, 0.8);
+        backdrop-filter: blur(12px);
+      }
+      .neon-glow:hover {
+        box-shadow: 0 0 15px rgba(0, 195, 235, 0.3);
+      }
+      ::-webkit-scrollbar {
+        width: 6px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #0e0e0e;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #262626;
+        border-radius: 10px;
+      }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body overflow-x-hidden">
+<!-- SideNavBar Component -->
+<aside class="h-screen w-64 fixed left-0 top-0 z-40 bg-neutral-900 shadow-2xl flex flex-col py-6">
+<div class="px-6 mb-10">
+<h1 class="text-lg font-bold text-white font-headline tracking-tight">Admin Portal</h1>
+<p class="text-xs text-neutral-500 font-label">Elite Tier Access</p>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="bg-cyan-500/10 text-cyan-400 border-l-4 border-cyan-400 px-4 py-3 flex items-center gap-3 font-label text-sm font-medium transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]">dashboard</span>
+                Dashboard
+            </a>
+<a class="text-neutral-500 px-4 py-3 flex items-center gap-3 hover:text-neutral-200 hover:bg-neutral-800 font-label text-sm font-medium transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]">groups</span>
+                Player Management
+            </a>
+<a class="text-neutral-500 px-4 py-3 flex items-center gap-3 hover:text-neutral-200 hover:bg-neutral-800 font-label text-sm font-medium transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]">emoji_events</span>
+                Tournament Controls
+            </a>
+<a class="text-neutral-500 px-4 py-3 flex items-center gap-3 hover:text-neutral-200 hover:bg-neutral-800 font-label text-sm font-medium transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]">settings</span>
+                Settings
+            </a>
+</nav>
+<div class="px-4 mt-auto">
+<a class="text-neutral-500 px-4 py-3 flex items-center gap-3 hover:text-neutral-200 hover:bg-neutral-800 font-label text-sm font-medium transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]">help</span>
+                Support
+            </a>
+<button class="w-full mt-4 bg-surface-container-highest text-white py-3 rounded-sm font-bold text-xs uppercase tracking-widest hover:bg-red-500/20 hover:text-red-400 transition-all active:scale-95">
+                Logout
+            </button>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-64 min-h-screen p-8 bg-surface">
+<!-- Header Section -->
+<header class="flex justify-between items-end mb-12">
+<div>
+<h2 class="text-4xl font-black font-headline uppercase tracking-tighter text-white">Command Center</h2>
+<p class="text-on-surface-variant font-label mt-1">Live overview of tournament operations</p>
+</div>
+<div class="flex gap-4">
+<div class="flex flex-col items-end">
+<span class="text-[10px] uppercase font-bold text-cyan-400 tracking-[0.2em] mb-1">Registration Status</span>
+<button class="px-6 py-2 bg-green-500/10 text-green-400 border border-green-500/30 rounded-sm font-black text-xs uppercase tracking-widest hover:bg-green-500/20 transition-all">
+                        Open Registration
+                    </button>
+</div>
+</div>
+</header>
+<!-- Analytics Grid (Asymmetric) -->
+<section class="grid grid-cols-12 gap-6 mb-12">
+<div class="col-span-12 md:col-span-4 bg-surface-container-low p-6 relative overflow-hidden group">
+<div class="absolute top-0 left-0 w-1 h-full bg-primary"></div>
+<p class="text-[10px] uppercase font-bold text-neutral-500 tracking-widest mb-2">Total Players</p>
+<div class="flex items-baseline gap-2">
+<h3 class="text-5xl font-black font-headline text-white">1,248</h3>
+<span class="text-green-400 text-xs font-bold font-label">+12%</span>
+</div>
+<span class="material-symbols-outlined absolute right-4 bottom-4 text-6xl text-white/5 pointer-events-none group-hover:text-primary/10 transition-colors">person</span>
+</div>
+<div class="col-span-12 md:col-span-5 bg-surface-container-low p-6 relative overflow-hidden group">
+<div class="absolute top-0 left-0 w-1 h-full bg-secondary"></div>
+<p class="text-[10px] uppercase font-bold text-neutral-500 tracking-widest mb-2">Total Prize Pool</p>
+<div class="flex items-baseline gap-2">
+<h3 class="text-5xl font-black font-headline text-white">$25,000</h3>
+<span class="text-secondary text-xs font-bold font-label">Locked</span>
+</div>
+<span class="material-symbols-outlined absolute right-4 bottom-4 text-6xl text-white/5 pointer-events-none group-hover:text-secondary/10 transition-colors">military_tech</span>
+</div>
+<div class="col-span-12 md:col-span-3 bg-surface-container-low p-6 relative overflow-hidden group">
+<div class="absolute top-0 left-0 w-1 h-full bg-tertiary"></div>
+<p class="text-[10px] uppercase font-bold text-neutral-500 tracking-widest mb-2">Revenue</p>
+<div class="flex items-baseline gap-2">
+<h3 class="text-5xl font-black font-headline text-white">$4.2K</h3>
+</div>
+<span class="material-symbols-outlined absolute right-4 bottom-4 text-6xl text-white/5 pointer-events-none group-hover:text-tertiary/10 transition-colors">payments</span>
+</div>
+</section>
+<div class="grid grid-cols-12 gap-8">
+<!-- Update Info Form Section -->
+<section class="col-span-12 lg:col-span-5 space-y-8">
+<div class="bg-surface-container-high p-8 rounded-sm">
+<div class="flex items-center gap-3 mb-8">
+<span class="material-symbols-outlined text-primary">edit_square</span>
+<h4 class="font-headline font-bold uppercase tracking-wide text-lg">System Configuration</h4>
+</div>
+<form class="space-y-6">
+<div class="space-y-2">
+<label class="text-[10px] uppercase font-bold text-neutral-400 tracking-widest">Tournament Title</label>
+<input class="w-full bg-surface-container-lowest border-none text-on-surface p-3 font-body focus:ring-1 focus:ring-primary placeholder-neutral-600 transition-all" type="text" value="Apex Legends Elite League"/>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="space-y-2">
+<label class="text-[10px] uppercase font-bold text-neutral-400 tracking-widest">bKash Merchant</label>
+<input class="w-full bg-surface-container-lowest border-none text-on-surface p-3 font-body focus:ring-1 focus:ring-primary transition-all" type="text" value="01700000000"/>
+</div>
+<div class="space-y-2">
+<label class="text-[10px] uppercase font-bold text-neutral-400 tracking-widest">Nagad Number</label>
+<input class="w-full bg-surface-container-lowest border-none text-on-surface p-3 font-body focus:ring-1 focus:ring-primary transition-all" type="text" value="01900000000"/>
+</div>
+</div>
+<div class="space-y-2">
+<label class="text-[10px] uppercase font-bold text-neutral-400 tracking-widest">Entry Fee ($)</label>
+<input class="w-full bg-surface-container-lowest border-none text-on-surface p-3 font-body focus:ring-1 focus:ring-primary transition-all" type="number" value="20"/>
+</div>
+<button class="w-full kinetic-gradient text-on-primary-fixed font-black uppercase tracking-widest py-4 text-sm neon-glow transition-all active:scale-[0.98]" type="submit">
+                            Sync Changes to Live
+                        </button>
+</form>
+</div>
+<!-- Registration Toggle Hud -->
+<div class="glass-hud p-8 border border-white/5 rounded-sm relative group cursor-pointer hover:border-primary/20 transition-all">
+<div class="flex justify-between items-center">
+<div>
+<h4 class="font-headline font-bold text-xl uppercase italic">Manual Override</h4>
+<p class="text-xs text-neutral-400 font-label">Instantly kill all incoming registrations</p>
+</div>
+<div class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox" value=""/>
+<div class="w-14 h-7 bg-neutral-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[4px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-6 after:w-6 after:transition-all peer-checked:bg-primary"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Player Management Table Section -->
+<section class="col-span-12 lg:col-span-7">
+<div class="bg-surface-container-high rounded-sm overflow-hidden flex flex-col h-full">
+<div class="p-6 flex justify-between items-center border-b border-white/5">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary">shield_person</span>
+<h4 class="font-headline font-bold uppercase tracking-wide text-lg">Pending Registrations</h4>
+</div>
+<div class="bg-surface-container-lowest px-3 py-1 rounded-full text-[10px] font-black uppercase text-secondary border border-secondary/20">
+                            14 Pending
+                        </div>
+</div>
+<div class="overflow-x-auto flex-1">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-highest/30">
+<th class="px-6 py-4 text-[10px] font-black uppercase text-neutral-500 tracking-widest">Player Identity</th>
+<th class="px-6 py-4 text-[10px] font-black uppercase text-neutral-500 tracking-widest">In-Game ID</th>
+<th class="px-6 py-4 text-[10px] font-black uppercase text-neutral-500 tracking-widest">Transaction ID</th>
+<th class="px-6 py-4 text-[10px] font-black uppercase text-neutral-500 tracking-widest text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-white/5">
+<!-- Row 1 -->
+<tr class="hover:bg-white/5 transition-colors group">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-sm overflow-hidden bg-neutral-800">
+<img alt="" class="w-full h-full object-cover" data-alt="close up headshot portrait of a professional male gamer with stylish headphones and neon rim lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAt1dAPwfU5223_NtF0jffSzdhzesF6xIIRFPwvhorW0t-o3n2Jht0bK2KstgwUHyeOjWY0YxrsNeoNLoD1k89WnIisllIj8zO_B-BGrKwnh9QtnqycEnfwruvlGbTxWQRbXGz85u1yJwDpCb9r36lqqv9S-U5LHmT2IC1SOlPQm7SqjCCig8GZ0JkasslPrhfG-4U0lH8ehHKCNaRV_083BJqNWLW_fuBmCa4-HIYK_vVnz19luCmJvwGdlaal_VKWNJsHyuzeWqJl"/>
+</div>
+<div>
+<p class="text-sm font-bold text-white">Ghost_Stalker</p>
+<p class="text-[10px] text-neutral-500">Tier: Elite</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 font-mono text-xs text-primary-dim">APEX-99231</td>
+<td class="px-6 py-4 font-mono text-xs text-neutral-400">BK22X910-AQ</td>
+<td class="px-6 py-4 text-right">
+<div class="flex justify-end gap-2">
+<button class="p-2 hover:bg-green-500/20 text-green-400 transition-colors" title="Approve">
+<span class="material-symbols-outlined text-lg">check_circle</span>
+</button>
+<button class="p-2 hover:bg-red-500/20 text-red-400 transition-colors" title="Delete">
+<span class="material-symbols-outlined text-lg">delete_forever</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-white/5 transition-colors group">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-sm overflow-hidden bg-neutral-800">
+<img alt="" class="w-full h-full object-cover" data-alt="close up headshot portrait of a professional female gamer with cool blue hair and futuristic eyewear" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA8pbsK287C6hJpLLkU3l922up5Myd9ei_gKf-KsJdhdivvopqEsGob903VwOvjHz7FGHi4EeUBH8hhC8yb7bSODYX-RuHW6zR99dx89S7mlkGQCdnMvj1ciMiafXB5BRpUTONBTDrGRK4c_mqrkbzv6qO-bgDHCcepQ2ARHFAV1qFWFhZj-Ic6UPscYMPmmYFvzjGjGHp2Wby7CFIu8rpvPlLTLlTiNs7PcqEg4un1tmZbLgIfzSzLx2aT_U4ZnE8F_aNblx_Wx2ga"/>
+</div>
+<div>
+<p class="text-sm font-bold text-white">Cyber_Queen</p>
+<p class="text-[10px] text-neutral-500">Tier: Pro</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 font-mono text-xs text-primary-dim">CYB-00122</td>
+<td class="px-6 py-4 font-mono text-xs text-neutral-400">NG55M002-PP</td>
+<td class="px-6 py-4 text-right">
+<div class="flex justify-end gap-2">
+<button class="p-2 hover:bg-green-500/20 text-green-400 transition-colors" title="Approve">
+<span class="material-symbols-outlined text-lg">check_circle</span>
+</button>
+<button class="p-2 hover:bg-red-500/20 text-red-400 transition-colors" title="Delete">
+<span class="material-symbols-outlined text-lg">delete_forever</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-white/5 transition-colors group">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-sm overflow-hidden bg-neutral-800">
+<img alt="" class="w-full h-full object-cover" data-alt="headshot of a focused esports player with a serious expression and digital glitch aesthetic background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCTj9eV4O6EPqggnOqMd2QXqmSyVEDZ6iplv0BNJEiUQ28phd3F5GbILyWs7n3tzo4YNGT1E4HOAsNkDWmvDM3YTtAS1lRrfuRfByv82mB40x-Tle09kxE-skf2howmNDNONrfjP1auAV8-OpNtlZ-ZgzZM3tn2A6bQKqOSKNaVFIov-OkW5twUg-B-WfUDXawk0mQ4Q1iaor01y4KPew_uNZy9xry-5Qb1AcJkGFpg05rb4V7OweOb2sD_6CDjRvMci7zbVc759hTA"/>
+</div>
+<div>
+<p class="text-sm font-bold text-white">Shadow_Reaper</p>
+<p class="text-[10px] text-neutral-500">Tier: Challenger</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 font-mono text-xs text-primary-dim">REA-44021</td>
+<td class="px-6 py-4 font-mono text-xs text-neutral-400">BK11L808-KK</td>
+<td class="px-6 py-4 text-right">
+<div class="flex justify-end gap-2">
+<button class="p-2 hover:bg-green-500/20 text-green-400 transition-colors" title="Approve">
+<span class="material-symbols-outlined text-lg">check_circle</span>
+</button>
+<button class="p-2 hover:bg-red-500/20 text-red-400 transition-colors" title="Delete">
+<span class="material-symbols-outlined text-lg">delete_forever</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-white/5 transition-colors group">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-sm overflow-hidden bg-neutral-800">
+<img alt="" class="w-full h-full object-cover" data-alt="vibrant neon avatar of a pro gamer wearing a technical hoodie and glowing accessories" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCIMfKukmtPF3qAUnnMEcGPyVGLmL2WVwc4m0J7q3vsJOuGZJii9fRYg5BfEkFvI6dPm1BUXdVKnq9JIH9Qj8fuE4QA6Ng_Z9HOwM5tcmQML9irrD6ZEFemEhtmN5C27wRU6Hw2eEHkb2Gnh5a7go4iEweZpRNKKKRuiTpK-WoXropTrIMWnuENNCI2mZrTv5b487Wcz0dGQfCfq1HbU5TwMprzakTeM52oVD63tfRZDUwFLu8R1rhQ5rRobqKL0D0Hyw7bYKS9TVka"/>
+</div>
+<div>
+<p class="text-sm font-bold text-white">Neon_Volt</p>
+<p class="text-[10px] text-neutral-500">Tier: Elite</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 font-mono text-xs text-primary-dim">VLT-88220</td>
+<td class="px-6 py-4 font-mono text-xs text-neutral-400">NG00S333-ZZ</td>
+<td class="px-6 py-4 text-right">
+<div class="flex justify-end gap-2">
+<button class="p-2 hover:bg-green-500/20 text-green-400 transition-colors" title="Approve">
+<span class="material-symbols-outlined text-lg">check_circle</span>
+</button>
+<button class="p-2 hover:bg-red-500/20 text-red-400 transition-colors" title="Delete">
+<span class="material-symbols-outlined text-lg">delete_forever</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="p-4 bg-surface-container-lowest flex justify-between items-center">
+<p class="text-[10px] text-neutral-500 font-label">Page 1 of 4</p>
+<div class="flex gap-2">
+<button class="p-1 text-neutral-500 hover:text-white"><span class="material-symbols-outlined">chevron_left</span></button>
+<button class="p-1 text-white bg-primary/10 rounded-sm px-2 text-xs font-bold">1</button>
+<button class="p-1 text-neutral-500 hover:text-white px-2 text-xs font-bold">2</button>
+<button class="p-1 text-neutral-500 hover:text-white px-2 text-xs font-bold">3</button>
+<button class="p-1 text-neutral-500 hover:text-white"><span class="material-symbols-outlined">chevron_right</span></button>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Footer from Shared Components -->
+<footer class="w-full py-12 px-6 mt-12 border-t border-neutral-900 bg-neutral-950 grid grid-cols-1 md:grid-cols-4 gap-8 max-w-7xl mx-auto">
+<div class="col-span-1 md:col-span-2">
+<p class="font-headline font-black italic tracking-tighter text-white text-xl mb-4">ESPORTS LEAGUE</p>
+<p class="text-xs text-neutral-500 max-w-sm">The ultimate platform for competitive gaming and tournament organization. Built for the elite, by the elite.</p>
+</div>
+<div class="flex flex-col gap-2">
+<span class="text-[10px] font-black uppercase tracking-widest text-neutral-400 mb-2">Connect</span>
+<a class="text-xs text-neutral-500 hover:text-cyan-400 transition-colors" href="#">Discord</a>
+<a class="text-xs text-neutral-500 hover:text-cyan-400 transition-colors" href="#">YouTube</a>
+</div>
+<div class="flex flex-col gap-2">
+<span class="text-[10px] font-black uppercase tracking-widest text-neutral-400 mb-2">Platform</span>
+<a class="text-xs text-neutral-500 hover:text-cyan-400 transition-colors" href="#">Sitemap</a>
+<a class="text-xs text-neutral-500 hover:text-cyan-400 transition-colors" href="#">Contact Us</a>
+</div>
+<div class="col-span-1 md:col-span-4 pt-8 border-t border-white/5 mt-8">
+<p class="text-xs text-neutral-500">© 2024 Esports League. All Rights Reserved.</p>
+</div>
+</footer>
+</main>
+</body></html>
