@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800;900&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "secondary-dim": "#efc900",
+            "primary-dim": "#00c3eb",
+            "inverse-primary": "#00687e",
+            "tertiary-container": "#7000ff",
+            "surface-variant": "#262626",
+            "inverse-on-surface": "#565555",
+            "primary-container": "#00d2fd",
+            "secondary-container": "#705d00",
+            "primary": "#6dddff",
+            "error-container": "#9f0519",
+            "on-secondary": "#5b4b00",
+            "on-secondary-container": "#fff7e6",
+            "on-primary": "#004c5e",
+            "error-dim": "#d7383b",
+            "surface-container-highest": "#262626",
+            "primary-fixed": "#00d2fd",
+            "on-tertiary-fixed": "#1f0052",
+            "on-surface-variant": "#adaaaa",
+            "on-tertiary-container": "#f8f1ff",
+            "on-tertiary-fixed-variant": "#4700a7",
+            "tertiary-fixed-dim": "#b190ff",
+            "surface-dim": "#0e0e0e",
+            "primary-fixed-dim": "#00c3eb",
+            "secondary-fixed-dim": "#efc900",
+            "on-secondary-fixed-variant": "#665500",
+            "surface-tint": "#6dddff",
+            "on-secondary-fixed": "#453900",
+            "surface-bright": "#2c2c2c",
+            "tertiary": "#ac89ff",
+            "on-surface": "#ffffff",
+            "surface-container-low": "#131313",
+            "tertiary-fixed": "#bda1ff",
+            "on-background": "#ffffff",
+            "error": "#ff716c",
+            "on-primary-container": "#004352",
+            "secondary": "#ffd709",
+            "on-error": "#490006",
+            "outline-variant": "#484847",
+            "on-error-container": "#ffa8a3",
+            "on-tertiary": "#290067",
+            "on-primary-fixed": "#002c37",
+            "inverse-surface": "#fcf9f8",
+            "surface-container": "#1a1919",
+            "background": "#0e0e0e",
+            "surface-container-high": "#201f1f",
+            "surface": "#0e0e0e",
+            "outline": "#767575",
+            "secondary-fixed": "#ffd709",
+            "on-primary-fixed-variant": "#004c5d",
+            "tertiary-dim": "#874cff",
+            "surface-container-lowest": "#000000"
+          },
+          fontFamily: {
+            "headline": ["Space Grotesk"],
+            "body": ["Inter"],
+            "label": ["Inter"]
+          },
+          borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    .kinetic-gradient {
+      background: linear-gradient(135deg, #6dddff 0%, #00d2fd 100%);
+    }
+    .neon-glow {
+      box-shadow: 0 0 15px rgba(109, 221, 255, 0.3);
+    }
+    .glass-panel {
+      backdrop-filter: blur(12px);
+      background: rgba(38, 38, 38, 0.8);
+    }
+    /* Hide scrollbar but keep functionality */
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+  </style>
+</head>
+<body class="bg-background text-on-background font-body selection:bg-primary selection:text-on-primary">
+<!-- TopAppBar Shell -->
+<header class="fixed top-0 w-full z-50 bg-[#0e0e0e]/80 backdrop-blur-xl border-b border-white/10 shadow-[0_4px_30px_rgba(0,0,0,0.5)] flex justify-between items-center px-6 py-4">
+<div class="flex items-center gap-8">
+<h1 class="text-2xl font-black italic text-[#00D4FF] drop-shadow-[0_0_10px_rgba(0,212,255,0.3)] font-headline uppercase tracking-widest">CYBER ARENA</h1>
+<nav class="hidden md:flex gap-6 items-center">
+<a class="text-white/60 hover:text-white transition-colors font-headline uppercase tracking-widest font-bold text-sm" href="#">Lobby</a>
+<a class="text-white/60 hover:text-white transition-colors font-headline uppercase tracking-widest font-bold text-sm" href="#">Live</a>
+<a class="text-[#00D4FF] border-b-2 border-[#00D4FF] pb-1 font-headline uppercase tracking-widest font-bold text-sm" href="#">Tournaments</a>
+<a class="text-white/60 hover:text-white transition-colors font-headline uppercase tracking-widest font-bold text-sm" href="#">Shop</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-2">
+<button class="p-2 text-on-surface-variant hover:bg-white/5 transition-all duration-300 scale-95 active:scale-90">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:bg-white/5 transition-all duration-300 scale-95 active:scale-90">
+<span class="material-symbols-outlined" data-icon="account_balance_wallet">account_balance_wallet</span>
+</button>
+</div>
+<button class="kinetic-gradient text-on-primary font-headline font-bold uppercase tracking-widest px-6 py-2 rounded-sm neon-glow scale-95 active:scale-90 transition-transform text-sm">
+        Connect Wallet
+      </button>
+</div>
+</header>
+<!-- SideNavBar Shell -->
+<aside class="h-screen w-64 fixed left-0 top-0 pt-20 bg-[#131313] hidden lg:flex flex-col overflow-y-auto">
+<div class="px-6 py-6 border-b border-white/5">
+<div class="flex items-center gap-3 mb-2">
+<div class="w-10 h-10 rounded-sm bg-surface-container-highest overflow-hidden">
+<img alt="Pro Player Emblem" class="w-full h-full object-cover" data-alt="Stylized glowing golden laurel wreath emblem on a dark metallic hexagonal background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAzRhK7m3LQ6DIqUrB1AsVMkyCeWq3dc43ebvTv2EgXoXSo31ai50eF7lnDwD-eQM4I7zuxU8SrgrEPP7E9yT8CE87iNudDmz9BlRs1SU2fBJybL1CyNACYS5v0ojZVLkwvsld0rztHXcGBRs_ecTUTvgcNo3WiU514sdHUKcKkZlPdjRA5DTHyZqQsevn3tC2zi3RGHGZ1KoY3Hme6YvyTFqjDU0ZFtYLMb0gds81e2KmQZIUlsDiEZWdestbcxAJH3SHpvseE4Dd9"/>
+</div>
+<div>
+<p class="font-headline font-bold text-[#00D4FF] text-xs tracking-wider">RANK: ELITE</p>
+<p class="text-[10px] text-white/40 uppercase tracking-tighter">Top 2% Globally</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 py-4">
+<a class="bg-[#201f1f] text-[#00D4FF] border-l-4 border-[#00D4FF] flex items-center gap-3 px-6 py-3 font-['Inter'] text-sm font-semibold tracking-tight hover:translate-x-1 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="leaderboard">leaderboard</span>
+        Leaderboard
+      </a>
+<a class="text-white/40 flex items-center gap-3 px-6 py-3 font-['Inter'] text-sm font-semibold tracking-tight hover:text-white hover:bg-white/5 hover:translate-x-1 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="query_stats">query_stats</span>
+        Live Stats
+      </a>
+<a class="text-white/40 flex items-center gap-3 px-6 py-3 font-['Inter'] text-sm font-semibold tracking-tight hover:text-white hover:bg-white/5 hover:translate-x-1 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+        Inventory
+      </a>
+<a class="text-white/40 flex items-center gap-3 px-6 py-3 font-['Inter'] text-sm font-semibold tracking-tight hover:text-white hover:bg-white/5 hover:translate-x-1 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="military_tech">military_tech</span>
+        Quests
+      </a>
+<a class="text-white/40 flex items-center gap-3 px-6 py-3 font-['Inter'] text-sm font-semibold tracking-tight hover:text-white hover:bg-white/5 hover:translate-x-1 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="support_agent">support_agent</span>
+        Support
+      </a>
+</nav>
+<div class="p-6">
+<button class="w-full border border-primary/30 text-primary py-3 font-headline font-bold uppercase tracking-widest text-xs hover:bg-primary/10 transition-colors">
+        GO PRO
+      </button>
+</div>
+<div class="mt-auto py-4 border-t border-white/5">
+<a class="text-white/40 flex items-center gap-3 px-6 py-2 font-['Inter'] text-xs hover:text-white transition-colors" href="#">
+<span class="material-symbols-outlined text-sm" data-icon="settings">settings</span>
+        Settings
+      </a>
+<a class="text-white/40 flex items-center gap-3 px-6 py-2 font-['Inter'] text-xs hover:text-white transition-colors" href="#">
+<span class="material-symbols-outlined text-sm" data-icon="logout">logout</span>
+        Logout
+      </a>
+</div>
+</aside>
+<!-- Main Canvas -->
+<main class="lg:ml-64 pt-24 pb-12 px-6 min-h-screen">
+<div class="max-w-7xl mx-auto">
+<!-- Header Section -->
+<header class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+<div class="space-y-2">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 bg-primary rounded-full animate-pulse shadow-[0_0_8px_#6dddff]"></span>
+<p class="text-primary font-headline text-sm font-bold uppercase tracking-widest">Global Championship Series</p>
+</div>
+<h2 class="text-4xl md:text-5xl font-black font-headline uppercase tracking-tighter leading-none italic">Tournament Results</h2>
+</div>
+<!-- Filter Component -->
+<div class="flex flex-col gap-2">
+<label class="text-white/40 text-[10px] uppercase font-bold tracking-widest">Season Filter</label>
+<div class="flex items-center bg-surface-container-low p-1 rounded-sm border border-white/10">
+<button class="px-4 py-1.5 text-xs font-headline font-bold uppercase tracking-widest text-[#00D4FF] bg-white/5">Season 04</button>
+<button class="px-4 py-1.5 text-xs font-headline font-bold uppercase tracking-widest text-white/40 hover:text-white transition-colors">Season 03</button>
+<button class="px-4 py-1.5 text-xs font-headline font-bold uppercase tracking-widest text-white/40 hover:text-white transition-colors">All-Time</button>
+</div>
+</div>
+</header>
+<!-- Prize Distribution (Asymmetric Layout) -->
+<section class="grid grid-cols-1 md:grid-cols-12 gap-6 mb-12">
+<div class="md:col-span-8 relative overflow-hidden bg-surface-container-low p-8 border-l-4 border-primary">
+<div class="relative z-10">
+<h3 class="font-headline font-black text-2xl uppercase italic mb-6">Current Prize Pool</h3>
+<div class="flex flex-wrap gap-12">
+<div>
+<p class="text-white/40 text-[10px] uppercase font-bold tracking-widest mb-1">Total Distribution</p>
+<p class="text-5xl font-black font-headline text-primary italic leading-none">$250,000</p>
+</div>
+<div class="flex flex-col justify-center">
+<div class="flex items-center gap-3 mb-2">
+<div class="w-4 h-4 bg-secondary rounded-full"></div>
+<span class="text-xs font-bold text-white/80">1st: $125,000 + 500 Arena Points</span>
+</div>
+<div class="flex items-center gap-3 mb-2">
+<div class="w-4 h-4 bg-white/40 rounded-full"></div>
+<span class="text-xs font-bold text-white/60">2nd: $75,000 + 250 Arena Points</span>
+</div>
+<div class="flex items-center gap-3">
+<div class="w-4 h-4 bg-on-tertiary-container rounded-full"></div>
+<span class="text-xs font-bold text-white/40">3rd: $30,000 + 100 Arena Points</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Decorative BG -->
+<div class="absolute right-0 top-0 h-full w-1/2 opacity-20 pointer-events-none">
+<img alt="Cyber Background" class="w-full h-full object-cover" data-alt="Abstract dark digital grid with electric blue data stream lines and glowing geometric nodes in a futuristic perspective" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAFuzjWDGvxPV3qc-kPjPxyebcpgXN1WA-l5sKU50YtfiA0yYD6bxiedwAw_x_yI2S1k6eWkchJa6P2B8PQ1NZSjoN-nVEIj3k4g-EhaZToNIseDHZFAyKEsMhJWCUo3qPGUHKvx2gGMtSRWBI2-LJavoqh6w8r6clX0PG4Wwvthq9XVvRiiEZWIpLaN3T98EsanYrI1uT0rNHDH9kTL94PtIsavNiiubsS9KQhp3YvGvSYnucl2YrhwCoJsbzK97H3w-oubPNYfiva"/>
+</div>
+</div>
+<div class="md:col-span-4 bg-surface-container-high p-8 flex flex-col justify-between border-r-4 border-secondary">
+<div>
+<h4 class="font-headline font-bold text-white/60 uppercase text-xs tracking-widest mb-4">Top Performer</h4>
+<div class="flex items-center gap-4 mb-4">
+<div class="w-16 h-16 bg-surface-container-highest border border-secondary/50 rounded-sm p-1">
+<img alt="MVP Avatar" class="w-full h-full object-cover" data-alt="High-detail futuristic cyberpunk soldier portrait wearing a neon blue visor and matte black tactical gear" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDXmB_e8YUaZzin5FuKQQrWXH0uDGsqNYNQ4VOhNArQzptuubCQWrGR3cf1BDzGhMsLAlZIpoVqAlzUAkHiExPCizIYxBfWQc3UQ3-MQDVkk-IJUoZtARJQHHoVLoQESJEQMAHqpnPGBYpYjhcqC4DKY0gT_hYj_BB_Q0KgMPJf24d7RaTc4M1xwGNkKHYoPY3v7i0VPXgzhrr8T6QGcsLImiT17oeuKZVeg7ZUvRakFPzkZ_iiy_jORZ4jsJCJ5Bg6dxJRIvOXvEVS"/>
+</div>
+<div>
+<p class="font-headline font-black text-xl italic uppercase text-secondary">VENOM_STRIKE</p>
+<p class="text-xs text-white/40">Team: Shadow Legion</p>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between border-t border-white/5 pt-4">
+<div>
+<p class="text-[10px] text-white/40 uppercase font-bold">Total Kills</p>
+<p class="font-headline font-black text-xl text-white">142</p>
+</div>
+<div class="text-right">
+<p class="text-[10px] text-white/40 uppercase font-bold">K/D Ratio</p>
+<p class="font-headline font-black text-xl text-white">4.82</p>
+</div>
+</div>
+</div>
+</section>
+<!-- High-Fidelity Ranking Table -->
+<section class="bg-surface-container-low p-1">
+<div class="overflow-x-auto no-scrollbar">
+<table class="w-full border-separate border-spacing-y-2">
+<thead>
+<tr class="text-left">
+<th class="px-6 py-4 text-[10px] font-headline font-black uppercase tracking-widest text-white/40">Rank</th>
+<th class="px-6 py-4 text-[10px] font-headline font-black uppercase tracking-widest text-white/40">Team Name</th>
+<th class="px-6 py-4 text-[10px] font-headline font-black uppercase tracking-widest text-white/40 text-center">Total Kills</th>
+<th class="px-6 py-4 text-[10px] font-headline font-black uppercase tracking-widest text-white/40 text-center">Points</th>
+<th class="px-6 py-4 text-[10px] font-headline font-black uppercase tracking-widest text-white/40 text-right">Trend</th>
+</tr>
+</thead>
+<tbody>
+<!-- Row 1 (Winner) -->
+<tr class="bg-surface-container-high group hover:bg-surface-container-highest transition-colors">
+<td class="px-6 py-6 border-l-4 border-secondary">
+<div class="flex items-center gap-2">
+<span class="font-headline font-black text-2xl italic text-secondary">01</span>
+<span class="material-symbols-outlined text-secondary text-sm" data-icon="military_tech" style="font-variation-settings: 'FILL' 1;">military_tech</span>
+</div>
+</td>
+<td class="px-6 py-6">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 bg-black/40 rounded-sm flex items-center justify-center border border-white/10 group-hover:border-secondary/50 transition-colors">
+<img alt="Team Logo" class="w-8 h-8 object-contain" data-alt="Stylized aggressive geometric wolf head logo in neon electric blue and dark grey metallic colors" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB4tTVA1EyYyKZfJiWkI_bcId13FgDSuYsoShZ6ivUeRJcNgSfYTT6reIsdsw5SxUUb-sc_ciJFIKmD4SOFCtyLyIDv22_YGfuAeXTy_rjtIS3-dOzHvvcqYtgyUrU2_nuVXXzkNkpm6iJfOu0MD9Jqbf-0pv-VU7RTvIgjU-afVHgK0JIXlf0W_T2ftDqvlYnRuzJu4wW1F0g582RyT9iYvUR34HQIX2aMenpnYtjQSn2XVii4h8kSJ13shY0cf4dw5U6Xzpt6fIL-"/>
+</div>
+<div>
+<p class="font-headline font-bold uppercase tracking-tight text-white group-hover:text-primary transition-colors">Shadow Legion</p>
+<p class="text-[10px] text-white/40">Regions: NA / EU</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-6 text-center font-headline font-bold text-white">842</td>
+<td class="px-6 py-6 text-center">
+<div class="inline-block px-4 py-1 bg-primary/10 text-primary rounded-sm font-headline font-black italic">
+                     2,450
+                   </div>
+</td>
+<td class="px-6 py-6 text-right">
+<span class="material-symbols-outlined text-green-500" data-icon="trending_up">trending_up</span>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="bg-surface-container-high group hover:bg-surface-container-highest transition-colors">
+<td class="px-6 py-6 border-l-4 border-white/20">
+<span class="font-headline font-black text-2xl italic text-white/60">02</span>
+</td>
+<td class="px-6 py-6">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 bg-black/40 rounded-sm flex items-center justify-center border border-white/10 group-hover:border-primary/50 transition-colors">
+<img alt="Team Logo" class="w-8 h-8 object-contain" data-alt="Abstract sharp lightning bolt logo encased in a futuristic hexagon, glowing cyan on black background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQiysAe72ePidcGqM0FiuqxSkqCK-RDGPnyfu_etGVkQ6AbXJMSX7JsyaZ34DVjfeuKZ21Zweu162AJQzEdUmQo3AcwmeHppqXkLcjg4r8yHOUIrlQWrjqj9KUjhKdTDnevMbI4rcSGayBs5OI1pXrRGE7z7cR55q6kG3WLtOASt9VTe2ncJv8s_WJ6SDdWETzSpddv1JFr-GD-9UgExFjV266xJVtHz31FKkXmrLBBO_3_MV3CBxlqiJOEd2TroHx8-dsSbDsQPgW"/>
+</div>
+<div>
+<p class="font-headline font-bold uppercase tracking-tight text-white group-hover:text-primary transition-colors">Vortex Prime</p>
+<p class="text-[10px] text-white/40">Regions: ASIA / OCE</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-6 text-center font-headline font-bold text-white">715</td>
+<td class="px-6 py-6 text-center">
+<div class="inline-block px-4 py-1 bg-white/5 text-white rounded-sm font-headline font-black italic">
+                     2,120
+                   </div>
+</td>
+<td class="px-6 py-6 text-right">
+<span class="material-symbols-outlined text-white/20" data-icon="horizontal_rule">horizontal_rule</span>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="bg-surface-container-high group hover:bg-surface-container-highest transition-colors">
+<td class="px-6 py-6 border-l-4 border-white/20">
+<span class="font-headline font-black text-2xl italic text-white/60">03</span>
+</td>
+<td class="px-6 py-6">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 bg-black/40 rounded-sm flex items-center justify-center border border-white/10 group-hover:border-primary/50 transition-colors">
+<img alt="Team Logo" class="w-8 h-8 object-contain" data-alt="Sleek chrome owl eyes logo glowing softly in purple and blue, minimalist tech aesthetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQe3iEkFjbIgbi-WWIBDwJjQCBkW8Mx96ZWwVGJ18Kcc698Di8obkrkDugf42RFZiUjlIt6fh3khrooyggUptDTOJfypfZtuevpCeL5u8FEnJLS5UBraf0Khsk2KbEQGMB8j3CxbFLJ89cbPHcEWBnzEqLv0H2Zgnkph1X99lBTEGYxjoqbACaK8qCeM1KPCIIBWZ4w6Ov57NvkV5J14NX4XIYW8yaexbVEM-j6Zo0OwcM_q02r_ZwI0p2J7zDfA285521p9wyxigx"/>
+</div>
+<div>
+<p class="font-headline font-bold uppercase tracking-tight text-white group-hover:text-primary transition-colors">Night Stalkers</p>
+<p class="text-[10px] text-white/40">Regions: EUW / EUNE</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-6 text-center font-headline font-bold text-white">688</td>
+<td class="px-6 py-6 text-center">
+<div class="inline-block px-4 py-1 bg-white/5 text-white rounded-sm font-headline font-black italic">
+                     1,945
+                   </div>
+</td>
+<td class="px-6 py-6 text-right">
+<span class="material-symbols-outlined text-green-500" data-icon="trending_up">trending_up</span>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="bg-surface-container-high group hover:bg-surface-container-highest transition-colors">
+<td class="px-6 py-6 border-l-4 border-white/20">
+<span class="font-headline font-black text-2xl italic text-white/60">04</span>
+</td>
+<td class="px-6 py-6">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 bg-black/40 rounded-sm flex items-center justify-center border border-white/10 group-hover:border-primary/50 transition-colors">
+<img alt="Team Logo" class="w-8 h-8 object-contain" data-alt="High-tech circuit board pattern formed into a shield shape, glowing neon blue lines on obsidian background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBpdcIkXzumjXfJUOAinuaD8hvgPsXtNUnzSNZ467W24wAszMDOgTfp2p3-sSJG8AhjCMBVRGRDCqnpuyp0dT1Ex1fguGTrXtyZ1k3KlMrYgrCYjPWQ62w1vwZ3_hBJGuqdiuCkeg0C_FZbuWsvFdljzHjgQpF1-xf07Pjn1fABjTy_Hj_qHg6zxAWGmgmfQWmnYJY3-pY34jIay0vM_tNdrsEfgFNR4dp4U8YuF6Lsi2yI77cCMTHRlUc9Dl_Bvd1IS_hzhpbCBiqb"/>
+</div>
+<div>
+<p class="font-headline font-bold uppercase tracking-tight text-white group-hover:text-primary transition-colors">Cyber Pulse</p>
+<p class="text-[10px] text-white/40">Regions: NA / BR</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-6 text-center font-headline font-bold text-white">650</td>
+<td class="px-6 py-6 text-center">
+<div class="inline-block px-4 py-1 bg-white/5 text-white rounded-sm font-headline font-black italic">
+                     1,810
+                   </div>
+</td>
+<td class="px-6 py-6 text-right">
+<span class="material-symbols-outlined text-error" data-icon="trending_down">trending_down</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- Bottom Pagination/Action -->
+<footer class="mt-8 flex items-center justify-between">
+<p class="text-[10px] text-white/40 uppercase font-bold tracking-widest">Showing 1-10 of 124 Competing Teams</p>
+<div class="flex gap-2">
+<button class="w-10 h-10 bg-surface-container-low border border-white/5 flex items-center justify-center text-white/40 hover:text-white transition-colors">
+<span class="material-symbols-outlined" data-icon="chevron_left">chevron_left</span>
+</button>
+<button class="w-10 h-10 bg-primary/10 border border-primary/30 flex items-center justify-center text-primary font-headline font-bold">1</button>
+<button class="w-10 h-10 bg-surface-container-low border border-white/5 flex items-center justify-center text-white/40 hover:text-white transition-colors font-headline font-bold">2</button>
+<button class="w-10 h-10 bg-surface-container-low border border-white/5 flex items-center justify-center text-white/40 hover:text-white transition-colors font-headline font-bold">3</button>
+<button class="w-10 h-10 bg-surface-container-low border border-white/5 flex items-center justify-center text-white/40 hover:text-white transition-colors">
+<span class="material-symbols-outlined" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</footer>
+</div>
+</main>
+<!-- Mobile Navigation Bar Shell -->
+<nav class="md:hidden fixed bottom-0 w-full bg-[#131313] border-t border-white/10 z-50 flex justify-around items-center py-3 px-2">
+<button class="flex flex-col items-center gap-1 text-white/40">
+<span class="material-symbols-outlined" data-icon="sports_esports">sports_esports</span>
+<span class="text-[10px] font-headline uppercase font-bold">Lobby</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-white/40">
+<span class="material-symbols-outlined" data-icon="sensors">sensors</span>
+<span class="text-[10px] font-headline uppercase font-bold">Live</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-[#00D4FF]">
+<span class="material-symbols-outlined" data-icon="emoji_events" style="font-variation-settings: 'FILL' 1;">emoji_events</span>
+<span class="text-[10px] font-headline uppercase font-bold">Tourneys</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-white/40">
+<span class="material-symbols-outlined" data-icon="leaderboard">leaderboard</span>
+<span class="text-[10px] font-headline uppercase font-bold">Ranks</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-white/40">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="text-[10px] font-headline uppercase font-bold">Profile</span>
+</button>
+</nav>
+</body></html>
