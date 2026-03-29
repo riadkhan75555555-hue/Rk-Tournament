@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ARENA.GG | Team Finder &amp; Registration</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;900&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface-variant": "#262626",
+                        "primary-fixed": "#00d2fd",
+                        "on-tertiary": "#290067",
+                        "on-secondary": "#5b4b00",
+                        "on-primary-fixed": "#002c37",
+                        "on-primary-fixed-variant": "#004c5d",
+                        "background": "#0e0e0e",
+                        "surface": "#0e0e0e",
+                        "secondary-fixed-dim": "#efc900",
+                        "on-tertiary-fixed-variant": "#4700a7",
+                        "on-error-container": "#ffa8a3",
+                        "on-background": "#ffffff",
+                        "tertiary-fixed": "#bda1ff",
+                        "primary-container": "#00d2fd",
+                        "error": "#ff716c",
+                        "surface-tint": "#6dddff",
+                        "surface-dim": "#0e0e0e",
+                        "on-secondary-fixed-variant": "#665500",
+                        "on-error": "#490006",
+                        "surface-container-highest": "#262626",
+                        "inverse-on-surface": "#565555",
+                        "surface-container-low": "#131313",
+                        "error-dim": "#d7383b",
+                        "secondary": "#ffd709",
+                        "on-surface-variant": "#adaaaa",
+                        "on-primary-container": "#004352",
+                        "on-surface": "#ffffff",
+                        "error-container": "#9f0519",
+                        "tertiary-dim": "#874cff",
+                        "primary-dim": "#00c3eb",
+                        "tertiary-container": "#7000ff",
+                        "outline": "#767575",
+                        "tertiary": "#ac89ff",
+                        "surface-container-lowest": "#000000",
+                        "on-secondary-fixed": "#453900",
+                        "on-secondary-container": "#fff7e6",
+                        "secondary-dim": "#efc900",
+                        "on-tertiary-container": "#f8f1ff",
+                        "surface-container": "#1a1919",
+                        "tertiary-fixed-dim": "#b190ff",
+                        "secondary-fixed": "#ffd709",
+                        "inverse-surface": "#fcf9f8",
+                        "surface-container-high": "#201f1f",
+                        "on-tertiary-fixed": "#1f0052",
+                        "inverse-primary": "#00687e",
+                        "outline-variant": "#484847",
+                        "secondary-container": "#705d00",
+                        "surface-bright": "#2c2c2c",
+                        "on-primary": "#004c5e",
+                        "primary-fixed-dim": "#00c3eb",
+                        "primary": "#6dddff"
+                    },
+                    fontFamily: {
+                        "headline": ["Space Grotesk"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .kinetic-gradient {
+            background: linear-gradient(135deg, #6dddff 0%, #00d2fd 100%);
+        }
+        .glass-panel {
+            background: rgba(38, 38, 38, 0.8);
+            backdrop-filter: blur(12px);
+        }
+        .stat-strip-accent {
+            border-left: 2px solid #6dddff;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary selection:text-on-primary">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-[#0e0e0e]/80 backdrop-blur-xl border-b border-white/10 flex justify-between items-center px-6 h-16 w-full shadow-[0_4px_30px_rgba(0,0,0,0.5)]">
+<div class="text-2xl font-black italic text-[#00D4FF] drop-shadow-[0_0_10px_rgba(0,212,255,0.4)] font-headline uppercase tracking-wider">
+            ARENA.GG
+        </div>
+<div class="hidden md:flex gap-8 items-center">
+<a class="font-headline uppercase tracking-wider text-sm font-bold text-white/60 hover:text-white transition-colors" href="#">Tournaments</a>
+<a class="font-headline uppercase tracking-wider text-sm font-bold text-white/60 hover:text-white transition-colors" href="#">Teams</a>
+<a class="font-headline uppercase tracking-wider text-sm font-bold text-[#00D4FF] border-b-2 border-[#00D4FF] pb-1" href="#">Recruit</a>
+<a class="font-headline uppercase tracking-wider text-sm font-bold text-white/60 hover:text-white transition-colors" href="#">Vault</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-white/60 hover:text-white transition-all duration-300 hover:bg-white/5">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 text-white/60 hover:text-white transition-all duration-300 hover:bg-white/5">
+<span class="material-symbols-outlined">account_circle</span>
+</button>
+</div>
+</nav>
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-16 h-[calc(100vh-64px)] w-64 bg-[#131313]/90 backdrop-blur-2xl border-r border-white/5 hidden lg:flex flex-col py-6">
+<div class="px-6 mb-8">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest overflow-hidden border border-primary/30">
+<img alt="Avatar" data-alt="close-up portrait of a professional esports player wearing a sleek black and cyan team jersey with futuristic lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDcoUY40ogfbVKrcm9UWgOIZOXSxSZCEGqWdXyPD-RI9jE18zmDjekd8M6mfreACPH0GWTlMx0aSqxFSmu7DRPnY60dMZwS54SO6MKnRl8qV8BDg2BzUUi1THnDYh14BypwQrmK281eUMnYdRnE_Vc6ugWWTQQ7KHqi1hO3O9xQzlOZFKbzCa7Hm0PtzPfwzhesu5cyr54QUKMaONiaNjCSp-132syaFyLKzGBqbTVezFZiqXbC7rTdjApvlEz0obw5qUxub2tXJnO3"/>
+</div>
+<div>
+<div class="text-sm font-bold font-headline uppercase tracking-tight">CYBER_ELITE</div>
+<div class="text-xs text-primary font-medium">Rank: Immortal</div>
+</div>
+</div>
+</div>
+<nav class="flex-1 flex flex-col">
+<a class="text-white/40 hover:text-white/80 py-3 px-6 flex items-center gap-3 transition-all hover:bg-white/5 font-headline text-sm font-medium" href="#">
+<span class="material-symbols-outlined">dashboard</span> Dashboard
+            </a>
+<a class="text-white/40 hover:text-white/80 py-3 px-6 flex items-center gap-3 transition-all hover:bg-white/5 font-headline text-sm font-medium" href="#">
+<span class="material-symbols-outlined">swords</span> Active Matches
+            </a>
+<a class="bg-[#00D4FF]/10 text-[#00D4FF] border-l-4 border-[#00D4FF] py-3 px-6 flex items-center gap-3 font-headline text-sm font-medium" href="#">
+<span class="material-symbols-outlined">group_add</span> Team Finder
+            </a>
+<a class="text-white/40 hover:text-white/80 py-3 px-6 flex items-center gap-3 transition-all hover:bg-white/5 font-headline text-sm font-medium" href="#">
+<span class="material-symbols-outlined">shutter_speed</span> AI Scan Portal
+            </a>
+<a class="text-white/40 hover:text-white/80 py-3 px-6 flex items-center gap-3 transition-all hover:bg-white/5 font-headline text-sm font-medium" href="#">
+<span class="material-symbols-outlined">settings</span> Settings
+            </a>
+</nav>
+<div class="px-6 mt-auto">
+<button class="w-full kinetic-gradient text-on-primary-container font-headline font-black text-xs py-3 rounded-sm shadow-[0_0_15px_rgba(0,212,255,0.3)] hover:scale-105 transition-transform active:scale-95">
+                REGISTER TEAM
+            </button>
+<div class="mt-6 flex flex-col gap-2">
+<a class="text-white/20 hover:text-white/60 text-xs flex items-center gap-2" href="#">
+<span class="material-symbols-outlined text-sm">help</span> Support
+                </a>
+<a class="text-white/20 hover:text-white/60 text-xs flex items-center gap-2" href="#">
+<span class="material-symbols-outlined text-sm">logout</span> Logout
+                </a>
+</div>
+</div>
+</aside>
+<!-- Main Canvas -->
+<main class="lg:ml-64 pt-24 pb-20 px-6 min-h-screen">
+<div class="max-w-7xl mx-auto">
+<!-- Hero Header with Slot Counter -->
+<div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+<div class="space-y-2">
+<div class="flex items-center gap-2 text-primary font-headline text-sm font-bold tracking-[0.2em] uppercase">
+<span class="w-8 h-[2px] bg-primary"></span>
+                        Recruitment &amp; Registration
+                    </div>
+<h1 class="text-5xl md:text-7xl font-black font-headline uppercase tracking-tighter leading-none italic">
+                        Assemble Your <span class="text-transparent bg-clip-text kinetic-gradient">Squad.</span>
+</h1>
+</div>
+<div class="bg-surface-container-low p-6 flex items-center gap-8 border-l-4 border-secondary shadow-2xl relative overflow-hidden group">
+<div class="absolute inset-0 bg-secondary/5 translate-x-full group-hover:translate-x-0 transition-transform duration-500"></div>
+<div class="relative z-10">
+<div class="text-[10px] text-secondary font-bold font-headline uppercase tracking-widest mb-1">Status: Open</div>
+<div class="text-4xl font-black font-headline text-on-surface tracking-tighter">12 <span class="text-lg opacity-50">SLOTS LEFT</span></div>
+</div>
+<div class="w-16 h-16 rounded-full border-4 border-secondary/20 flex items-center justify-center relative z-10">
+<span class="material-symbols-outlined text-secondary text-3xl">timer</span>
+</div>
+</div>
+</div>
+<!-- Main Grid Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+<!-- Recruitment Board (Left Side) -->
+<section class="lg:col-span-7 space-y-6">
+<div class="flex justify-between items-center px-2">
+<h2 class="font-headline font-bold text-xl uppercase flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">diversity_3</span>
+                            Solo Mercenaries
+                        </h2>
+<button class="text-primary text-xs font-bold uppercase tracking-widest hover:underline decoration-2 underline-offset-4">
+                            Post your role
+                        </button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<!-- Player Card 1 -->
+<div class="surface-container-high glass-panel p-5 border border-white/5 hover:border-primary/40 transition-all duration-300 group">
+<div class="flex justify-between items-start mb-4">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 bg-surface-container-highest overflow-hidden border-2 border-primary/20">
+<img alt="Player" data-alt="digital avatar of a cyberpunk gamer with glowing blue glasses and futuristic headset in a dark tech environment" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCnNe9kV0IxOji45OFN7Oy6LzDHr7UORlGJktdKlTBNN6mKUZzfC6TSc7RX23eVvk24c0VaAVj4XuQk0xad23dciVH23v9aTHQuLizAk2zzpTsEwPUOU8j-Qb1SWnDVEawuESa27nS9DwFCsUSbBQypGu2rChUPDhsee-ZaqX9mwQfG7AKfv8NpU23N8LRGop1JhkEiL90PhsbV7ki0FOLbnRmTJbrVtL6XAD3h5i4a1IvPpHq1zvqsyYNLH5B8PBdkc9bm60_b6lMu"/>
+</div>
+<div>
+<div class="text-sm font-bold font-headline">Viper_Striker</div>
+<div class="text-[10px] text-white/40 uppercase tracking-tighter">Win Rate: 68%</div>
+</div>
+</div>
+<div class="bg-primary/10 text-primary text-[10px] font-bold px-2 py-1 uppercase tracking-wider">
+                                    Entry Fragger
+                                </div>
+</div>
+<div class="space-y-3 mb-4">
+<div class="stat-strip-accent bg-surface-container-highest p-2 text-xs flex justify-between items-center">
+<span class="text-white/40 font-medium">Preferred Game</span>
+<span class="font-bold">Valorant</span>
+</div>
+<div class="stat-strip-accent bg-surface-container-highest p-2 text-xs flex justify-between items-center">
+<span class="text-white/40 font-medium">KD Ratio</span>
+<span class="font-bold text-primary">1.45</span>
+</div>
+</div>
+<button class="w-full py-2 border border-primary/30 text-primary text-xs font-black font-headline uppercase tracking-widest hover:bg-primary hover:text-on-primary transition-all">
+                                INVITE TO TEAM
+                            </button>
+</div>
+<!-- Player Card 2 -->
+<div class="surface-container-high glass-panel p-5 border border-white/5 hover:border-primary/40 transition-all duration-300 group">
+<div class="flex justify-between items-start mb-4">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 bg-surface-container-highest overflow-hidden border-2 border-primary/20">
+<img alt="Player" data-alt="esports player silhouette with cinematic neon highlights and tech elements in the background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBMkr9blHwcN7CvqFlxKNVz6j2Ykoy9P5aP037F9zE0a2hVIfGkawLHXU5_R801his4vDT952MEcmed2V3GyCpVwcOl0yDmxPitCvvOtA7HBmcAdzYpYDWXBOZWTUHn_aid8M7ShihvDrRKSU1mBi3PMSzA0c5CuH2XKAEJdfyvj-Cuw1RttqDNVO6VjlKNpPutLIGl14o1pamVUA0n23pebsc9rtJ_dj13sDe-5k7UwBs61LNVBk3Ctp21mPuIaa2yEAreg--P7a7k"/>
+</div>
+<div>
+<div class="text-sm font-bold font-headline">Shadow_Scope</div>
+<div class="text-[10px] text-white/40 uppercase tracking-tighter">Win Rate: 72%</div>
+</div>
+</div>
+<div class="bg-secondary/10 text-secondary text-[10px] font-bold px-2 py-1 uppercase tracking-wider">
+                                    Sniper
+                                </div>
+</div>
+<div class="space-y-3 mb-4">
+<div class="stat-strip-accent bg-surface-container-highest p-2 text-xs flex justify-between items-center" style="border-left-color: #ffd709;">
+<span class="text-white/40 font-medium">Preferred Game</span>
+<span class="font-bold">CS2</span>
+</div>
+<div class="stat-strip-accent bg-surface-container-highest p-2 text-xs flex justify-between items-center" style="border-left-color: #ffd709;">
+<span class="text-white/40 font-medium">KD Ratio</span>
+<span class="font-bold text-secondary">1.82</span>
+</div>
+</div>
+<button class="w-full py-2 border border-secondary/30 text-secondary text-xs font-black font-headline uppercase tracking-widest hover:bg-secondary hover:text-on-secondary transition-all">
+                                INVITE TO TEAM
+                            </button>
+</div>
+<!-- Player Card 3 -->
+<div class="surface-container-high glass-panel p-5 border border-white/5 hover:border-primary/40 transition-all duration-300 group">
+<div class="flex justify-between items-start mb-4">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 bg-surface-container-highest overflow-hidden border-2 border-primary/20">
+<img alt="Player" data-alt="professional gamer portrait with soft teal studio lighting and abstract digital data overlays" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD0go69SP21asfmFRtwtgFOxQUMVXYf72yASdu_FjizaTaM2XERYLU7VcdTibwVHiHbaCNP0wadPL6nK4P3SICIcyqexrhUnbx6ilqzKU_Y5rb8npdMcOZoaP4NJT-U2Y5t4Qtohm1OV2oqZ_irxj9VbljW9iXPoaySJ7AZY_SDDdKKBGb9LfrTbhmOv5zi-W1jbyiE4dU2pJh25AQMOX1wgSl1DWAvaI_CpFsMBVIG-nppuehDCB39XVyPR7RhRqVnjPtWtVEgwGmy"/>
+</div>
+<div>
+<div class="text-sm font-bold font-headline">Aura_Medic</div>
+<div class="text-[10px] text-white/40 uppercase tracking-tighter">Win Rate: 59%</div>
+</div>
+</div>
+<div class="bg-tertiary/10 text-tertiary text-[10px] font-bold px-2 py-1 uppercase tracking-wider">
+                                    Support
+                                </div>
+</div>
+<div class="space-y-3 mb-4">
+<div class="stat-strip-accent bg-surface-container-highest p-2 text-xs flex justify-between items-center" style="border-left-color: #ac89ff;">
+<span class="text-white/40 font-medium">Preferred Game</span>
+<span class="font-bold">Apex</span>
+</div>
+<div class="stat-strip-accent bg-surface-container-highest p-2 text-xs flex justify-between items-center" style="border-left-color: #ac89ff;">
+<span class="text-white/40 font-medium">KD Ratio</span>
+<span class="font-bold text-tertiary">0.95</span>
+</div>
+</div>
+<button class="w-full py-2 border border-tertiary/30 text-tertiary text-xs font-black font-headline uppercase tracking-widest hover:bg-tertiary hover:text-on-tertiary transition-all">
+                                INVITE TO TEAM
+                            </button>
+</div>
+<!-- Player Card 4 -->
+<div class="surface-container-high glass-panel p-5 border border-white/5 hover:border-primary/40 transition-all duration-300 group">
+<div class="flex justify-between items-start mb-4">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 bg-surface-container-highest overflow-hidden border-2 border-primary/20">
+<img alt="Player" data-alt="dark dramatic esport player photo with sharp edges and vibrant neon violet backlighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDiMr_og0NzyAyPQ7yNtXkkrpuv4cp4mI8zppYy7Fzc6k87RDfYVboQp3YDnUHmD1w9voOphLqKnruonaAB_jHW93ykyCbOYmdELKrZJk5K36di5_qObhmPVKa7KvYRJv8K62AiE8C-HWYjtaIxWvQhBlB1BrtaLbLuIcLdJZqL2KABKP65oA7iRRgtGbkQV67yoZ1klK__e7lpcCfOsXve6fnGdmkgMNf41UZbc-C16-6ndFtjPhmy2F7u8iDORc7xaezjMgAqb5q7"/>
+</div>
+<div>
+<div class="text-sm font-bold font-headline">Ghost_IGL</div>
+<div class="text-[10px] text-white/40 uppercase tracking-tighter">Win Rate: 81%</div>
+</div>
+</div>
+<div class="bg-primary-fixed-dim/10 text-primary-fixed-dim text-[10px] font-bold px-2 py-1 uppercase tracking-wider">
+                                    Captain / IGL
+                                </div>
+</div>
+<div class="space-y-3 mb-4">
+<div class="stat-strip-accent bg-surface-container-highest p-2 text-xs flex justify-between items-center">
+<span class="text-white/40 font-medium">Preferred Game</span>
+<span class="font-bold">Valorant</span>
+</div>
+<div class="stat-strip-accent bg-surface-container-highest p-2 text-xs flex justify-between items-center">
+<span class="text-white/40 font-medium">KD Ratio</span>
+<span class="font-bold text-primary">1.21</span>
+</div>
+</div>
+<button class="w-full py-2 border border-primary/30 text-primary text-xs font-black font-headline uppercase tracking-widest hover:bg-primary hover:text-on-primary transition-all">
+                                INVITE TO TEAM
+                            </button>
+</div>
+</div>
+</section>
+<!-- Registration Form (Right Side) -->
+<section class="lg:col-span-5">
+<div class="surface-container-low p-8 border border-white/5 relative overflow-hidden">
+<!-- Decorative background element -->
+<div class="absolute -right-20 -top-20 w-64 h-64 bg-primary/10 blur-[100px] rounded-full"></div>
+<div class="relative z-10 space-y-8">
+<div>
+<h2 class="font-headline font-black text-2xl uppercase italic tracking-tighter mb-1">Final Registration</h2>
+<p class="text-sm text-white/40">Secure your spot in the <span class="text-primary font-bold">CYBER_STORM 2024</span> bracket.</p>
+</div>
+<form class="space-y-6">
+<!-- Personal Info -->
+<div class="space-y-4">
+<div class="group">
+<label class="block text-[10px] font-bold text-primary uppercase tracking-widest mb-1 ml-1">Team Leader Name</label>
+<input class="w-full bg-surface-container-lowest border-outline-variant/20 focus:border-primary focus:ring-0 text-sm py-3 px-4 transition-all duration-300" placeholder="Enter Full Name" type="text"/>
+</div>
+<div class="group">
+<label class="block text-[10px] font-bold text-primary uppercase tracking-widest mb-1 ml-1">In-Game ID (UID)</label>
+<input class="w-full bg-surface-container-lowest border-outline-variant/20 focus:border-primary focus:ring-0 text-sm py-3 px-4 transition-all duration-300" placeholder="e.g. ARENA#1234" type="text"/>
+</div>
+</div>
+<!-- Payment Details Section -->
+<div class="bg-surface-container-high p-6 space-y-4">
+<div class="flex items-center justify-between border-b border-white/5 pb-4">
+<div class="text-[10px] font-bold text-white/40 uppercase tracking-widest">Payment Method</div>
+<div class="flex gap-4">
+<div class="h-6 w-12 bg-white/5 flex items-center justify-center grayscale hover:grayscale-0 cursor-pointer transition-all">
+<img alt="bKash" data-alt="logo of a popular digital wallet with pink and white branding elements" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCfCiBbo5xw8n35FptfoSaOpH-Pygl_kdvu1qm4Qnn6tR-_iwiHn7cTNt39MQO8X8G90iUwFzYzQOabtDFqZYVMJ1U1HZ8GYUA7dngtIUHjILKqNVhRgctMbBABhjNvkqNipALuHe85-IYFBMyUJYPJvl8wCk3fQDCSFpDnvCf9bdCSpjRAblN6YUICLW-2vE3Y0PdsJPdtUMHJQ7XxXtUY7MfbEt3kdEEs1KsZ_D_k92D3Uek3dWyKEkSqQpKJa0UNzKaayFFTcE9m"/>
+</div>
+<div class="h-6 w-12 bg-white/5 flex items-center justify-center grayscale hover:grayscale-0 cursor-pointer transition-all border border-primary/50">
+<img alt="Nagad" data-alt="logo of a digital payment service with orange and red minimalist branding" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBjSzA5xAWYW9EzZr0QWLdpcSReyJxKOgtoauA2Yb9b0S8o48FWy53kfeDEtPdnV8onOCp3Ab82Gy29YOnvIp7DTd7P5pWDinoJjOCsyGe3bmA89lhN_JzLV3-dnGncLS2hKAM4Jc7ELcWXP6gDK7LVujmiWf1kT2sG9tTptvYARQ_v88Npen3Fl4li1DTapdVX8IkFI2-tx1mKDqbhJxbq3jHfgALFygOvKz51jNUOHPlP-Q4Fq7ZwnKQ1n8t0E0yh7iEDa5wllB-h"/>
+</div>
+</div>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between text-xs">
+<span class="text-white/40">Merchant Number (Nagad)</span>
+<span class="font-bold text-secondary">017XXXXXXXX</span>
+</div>
+<div class="flex justify-between text-xs">
+<span class="text-white/40">Entry Fee</span>
+<span class="font-bold">৳ 500.00</span>
+</div>
+</div>
+<div class="group pt-2">
+<label class="block text-[10px] font-bold text-secondary uppercase tracking-widest mb-1 ml-1">Transaction ID (TrxID)</label>
+<input class="w-full bg-surface-container-lowest border-outline-variant/20 focus:border-secondary focus:ring-0 text-sm py-3 px-4 transition-all duration-300" placeholder="Enter 10-digit TrxID" type="text"/>
+</div>
+</div>
+<!-- Submit Button -->
+<button class="w-full kinetic-gradient py-4 text-on-primary-container font-headline font-black uppercase tracking-widest text-sm shadow-[0_10px_30px_rgba(0,212,255,0.3)] hover:translate-y-[-2px] transition-all group overflow-hidden relative" type="submit">
+<span class="relative z-10 flex items-center justify-center gap-2">
+                                        CONFIRM REGISTRATION
+                                        <span class="material-symbols-outlined text-base">rocket_launch</span>
+</span>
+<div class="absolute inset-0 bg-white/20 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
+</button>
+<p class="text-[10px] text-center text-white/20 uppercase tracking-[0.2em]">By registering you agree to the Arena League Terms &amp; Conditions</p>
+</form>
+</div>
+</div>
+<!-- Additional Promo Section -->
+<div class="mt-6 surface-container-highest p-6 flex gap-4 items-center">
+<div class="p-3 bg-secondary/10 rounded-full">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
+</div>
+<div>
+<div class="text-xs font-bold uppercase text-secondary">Pro Pass Bonus</div>
+<div class="text-[10px] text-white/40 uppercase">Get a customized team logo design upon successful tournament entry.</div>
+</div>
+</div>
+</section>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pb-6 pt-2 bg-[#131313]/95 backdrop-blur-lg border-t border-white/10 md:hidden z-50">
+<a class="flex flex-col items-center justify-center text-white/40 p-2 hover:text-[#00D4FF] transition-colors" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="text-[10px] uppercase font-bold font-label mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-white/40 p-2 hover:text-[#00D4FF] transition-colors" href="#">
+<span class="material-symbols-outlined">search</span>
+<span class="text-[10px] uppercase font-bold font-label mt-1">Find</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-[#00D4FF] text-[#0e0e0e] rounded-xl p-2 shadow-[0_0_15px_rgba(0,212,255,0.5)] scale-90" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">qr_code_scanner</span>
+<span class="text-[10px] uppercase font-bold font-label mt-1">Scan</span>
+</a>
+<a class="flex flex-col items-center justify-center text-white/40 p-2 hover:text-[#00D4FF] transition-colors" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] uppercase font-bold font-label mt-1">Profile</span>
+</a>
+</nav>
+</body></html>
