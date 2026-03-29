@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;900&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-variant": "#262626",
+              "primary-fixed": "#00d2fd",
+              "on-tertiary": "#290067",
+              "on-secondary": "#5b4b00",
+              "on-primary-fixed": "#002c37",
+              "on-primary-fixed-variant": "#004c5d",
+              "background": "#0e0e0e",
+              "surface": "#0e0e0e",
+              "secondary-fixed-dim": "#efc900",
+              "on-tertiary-fixed-variant": "#4700a7",
+              "on-error-container": "#ffa8a3",
+              "on-background": "#ffffff",
+              "tertiary-fixed": "#bda1ff",
+              "primary-container": "#00d2fd",
+              "error": "#ff716c",
+              "surface-tint": "#6dddff",
+              "surface-dim": "#0e0e0e",
+              "on-secondary-fixed-variant": "#665500",
+              "on-error": "#490006",
+              "surface-container-highest": "#262626",
+              "inverse-on-surface": "#565555",
+              "surface-container-low": "#131313",
+              "error-dim": "#d7383b",
+              "secondary": "#ffd709",
+              "on-surface-variant": "#adaaaa",
+              "on-primary-container": "#004352",
+              "on-surface": "#ffffff",
+              "error-container": "#9f0519",
+              "tertiary-dim": "#874cff",
+              "primary-dim": "#00c3eb",
+              "tertiary-container": "#7000ff",
+              "outline": "#767575",
+              "tertiary": "#ac89ff",
+              "surface-container-lowest": "#000000",
+              "on-secondary-fixed": "#453900",
+              "on-secondary-container": "#fff7e6",
+              "secondary-dim": "#efc900",
+              "on-tertiary-container": "#f8f1ff",
+              "surface-container": "#1a1919",
+              "tertiary-fixed-dim": "#b190ff",
+              "secondary-fixed": "#ffd709",
+              "inverse-surface": "#fcf9f8",
+              "surface-container-high": "#201f1f",
+              "on-tertiary-fixed": "#1f0052",
+              "inverse-primary": "#00687e",
+              "outline-variant": "#484847",
+              "secondary-container": "#705d00",
+              "surface-bright": "#2c2c2c",
+              "on-primary": "#004c5e",
+              "primary-fixed-dim": "#00c3eb",
+              "primary": "#6dddff"
+            },
+            fontFamily: {
+              "headline": ["Space Grotesk"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .kinetic-gradient {
+            background: linear-gradient(135deg, #6dddff 0%, #00d2fd 100%);
+        }
+        .gold-kinetic-gradient {
+            background: linear-gradient(135deg, #ffd709 0%, #efc900 100%);
+        }
+        .glass-panel {
+            background: rgba(32, 31, 31, 0.8);
+            backdrop-filter: blur(12px);
+        }
+        .hero-mesh {
+            background-image: 
+                radial-gradient(circle at 20% 30%, rgba(109, 221, 255, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(255, 215, 9, 0.05) 0%, transparent 40%);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary selection:text-on-primary-container min-h-screen overflow-x-hidden hero-mesh">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-[#0e0e0e]/80 backdrop-blur-xl border-b border-white/10 shadow-[0_4px_30px_rgba(0,0,0,0.5)] flex justify-between items-center px-6 h-16 w-full">
+<div class="text-2xl font-black italic text-[#00D4FF] drop-shadow-[0_0_10px_rgba(0,212,255,0.4)] font-headline tracking-wider">ARENA.GG</div>
+<div class="hidden md:flex items-center gap-8 font-headline uppercase tracking-wider text-sm font-bold">
+<a class="text-white/60 hover:text-white transition-colors" href="#">Tournaments</a>
+<a class="text-white/60 hover:text-white transition-colors" href="#">Teams</a>
+<a class="text-white/60 hover:text-white transition-colors" href="#">Recruit</a>
+<a class="text-[#00D4FF] border-b-2 border-[#00D4FF] pb-1" href="#">Vault</a>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden lg:flex items-center bg-surface-container-low px-4 py-2 rounded-sm border border-white/5">
+<span class="material-symbols-outlined text-white/40 text-sm">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-xs font-headline uppercase tracking-widest ml-2 w-32 placeholder:text-white/20" placeholder="SEARCH PLAYERS..." type="text"/>
+</div>
+<button class="text-white/60 hover:text-white transition-colors p-2 hover:bg-white/5 rounded-full">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="text-white/60 hover:text-white transition-colors p-2 hover:bg-white/5 rounded-full">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+</button>
+</div>
+</nav>
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-16 h-[calc(100vh-64px)] w-64 border-r border-white/5 bg-[#131313]/90 backdrop-blur-2xl hidden md:flex flex-col py-6">
+<div class="px-6 mb-8">
+<div class="flex items-center gap-3 p-3 bg-surface-container-high rounded-lg border-l-4 border-secondary">
+<div class="w-10 h-10 rounded-full overflow-hidden bg-primary/20 border border-primary/40">
+<img alt="Pro Player Avatar" class="w-full h-full object-cover" data-alt="Close up portrait of a professional esports athlete with focused expression, neon blue lighting on face, wearing a dark futuristic jersey" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAv88x66WBe1McEkssrEGNablfaTMx4Gp4gaMZzGzt-Te1SkadqSqEMmxRZD5NXchMCPTds064jd35iNLy3ZG9gKF15t7yVY3g6ZnAeJXFhYnDayzsxrPEnGSoEQ8vAVdpN0riZnhUxPc2ejFtAUUxlKkuH0HiTJM3SxUJ5zOHFXm5FT1mPa8-wgVoIKVT63tkAe156Tb38F3pZUW5mRpS5UtC1Qn-zwFh4z-2E5mfeGwWTNQO5rg2AH_O2LHczKM_-5SjngHBTHe_q"/>
+</div>
+<div>
+<div class="text-sm font-headline font-bold text-white tracking-tight">CYBER_ELITE</div>
+<div class="text-[10px] text-secondary font-bold uppercase tracking-widest">Rank: Immortal</div>
+</div>
+</div>
+</div>
+<nav class="flex-1 px-2 space-y-1">
+<a class="text-white/40 hover:text-white/80 py-3 px-4 flex items-center gap-3 transition-all hover:bg-white/5 hover:translate-x-1" href="#">
+<span class="material-symbols-outlined text-lg" data-icon="dashboard">dashboard</span>
+<span class="font-headline text-sm font-medium">Dashboard</span>
+</a>
+<a class="text-white/40 hover:text-white/80 py-3 px-4 flex items-center gap-3 transition-all hover:bg-white/5 hover:translate-x-1" href="#">
+<span class="material-symbols-outlined text-lg" data-icon="swords">swords</span>
+<span class="font-headline text-sm font-medium">Active Matches</span>
+</a>
+<a class="bg-[#00D4FF]/10 text-[#00D4FF] border-l-4 border-[#00D4FF] py-3 px-4 flex items-center gap-3" href="#">
+<span class="material-symbols-outlined text-lg" data-icon="group_add">group_add</span>
+<span class="font-headline text-sm font-medium">Team Finder</span>
+</a>
+<a class="text-white/40 hover:text-white/80 py-3 px-4 flex items-center gap-3 transition-all hover:bg-white/5 hover:translate-x-1" href="#">
+<span class="material-symbols-outlined text-lg" data-icon="shutter_speed">shutter_speed</span>
+<span class="font-headline text-sm font-medium">AI Scan Portal</span>
+</a>
+<a class="text-white/40 hover:text-white/80 py-3 px-4 flex items-center gap-3 transition-all hover:bg-white/5 hover:translate-x-1" href="#">
+<span class="material-symbols-outlined text-lg" data-icon="settings">settings</span>
+<span class="font-headline text-sm font-medium">Settings</span>
+</a>
+</nav>
+<div class="px-4 mt-auto">
+<button class="w-full bg-secondary text-on-secondary font-headline font-black py-3 px-4 text-xs tracking-widest rounded-sm shadow-[0_0_15px_rgba(255,215,9,0.2)] hover:scale-[1.02] transition-transform">
+                REGISTER TEAM
+            </button>
+<div class="mt-6 border-t border-white/5 pt-4 space-y-1">
+<a class="text-white/30 hover:text-white/60 py-2 px-4 flex items-center gap-3 text-xs transition-colors" href="#">
+<span class="material-symbols-outlined text-sm" data-icon="help">help</span>
+                    Support
+                </a>
+<a class="text-white/30 hover:text-white/60 py-2 px-4 flex items-center gap-3 text-xs transition-colors" href="#">
+<span class="material-symbols-outlined text-sm" data-icon="logout">logout</span>
+                    Logout
+                </a>
+</div>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="md:ml-64 pt-24 pb-32 px-6 md:px-12 flex flex-col items-center">
+<!-- Header Hero Section -->
+<div class="w-full max-w-6xl flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
+<div class="space-y-2">
+<h2 class="text-primary font-headline font-black text-6xl md:text-8xl italic tracking-tighter uppercase leading-none">The Vault</h2>
+<p class="text-on-surface-variant font-body text-lg max-w-md">Your digital legacy. Forged in the arena, shared with the world.</p>
+</div>
+<div class="flex gap-4">
+<button class="bg-surface-container-high hover:bg-surface-container-highest border border-outline-variant px-6 py-3 font-headline font-bold text-sm tracking-widest uppercase transition-all">
+                    Customise ID
+                </button>
+<button class="kinetic-gradient text-on-primary-container shadow-[0_0_20px_rgba(0,210,253,0.3)] px-8 py-3 font-headline font-black text-sm tracking-widest uppercase transition-all active:scale-95">
+                    Download Card
+                </button>
+</div>
+</div>
+<!-- Asymmetric Bento-style Layout for Gamer ID Card -->
+<div class="w-full max-w-6xl grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+<!-- THE ID CARD (Central Feature) -->
+<div class="lg:col-span-5 flex justify-center order-1 lg:order-1">
+<div class="relative group">
+<!-- Glow Background Effect -->
+<div class="absolute -inset-1 bg-gradient-to-br from-primary via-secondary to-tertiary rounded-lg blur opacity-25 group-hover:opacity-40 transition duration-1000"></div>
+<!-- Vertical Card Shell -->
+<div class="relative w-[340px] md:w-[400px] h-[600px] bg-surface-container-lowest rounded-sm overflow-hidden border border-white/10 flex flex-col">
+<!-- Card Header/Rank -->
+<div class="h-24 p-6 flex justify-between items-start">
+<div class="flex flex-col">
+<span class="font-headline font-black text-2xl text-white italic leading-none">IMMORTAL III</span>
+<span class="font-headline font-bold text-[10px] text-primary tracking-[0.3em] uppercase opacity-80">Season 14 Elite</span>
+</div>
+<div class="w-12 h-12 flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary text-4xl" data-icon="workspace_premium" style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
+</div>
+</div>
+<!-- Player Portrait & Level Glow -->
+<div class="flex-1 relative">
+<div class="absolute inset-0 z-0">
+<img alt="Player Main Image" class="w-full h-full object-cover grayscale brightness-75 group-hover:grayscale-0 transition-all duration-700" data-alt="Full body futuristic esports athlete portrait in a dynamic pose, wearing high-tech white and cyan armor, cyberpunk city background blurred" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDSKmOa0IT9y7qAEyX-20OysLAYP4Kq2c0wXraoiKxq5Dxmjnwr9JO_JNLk3CsSr7OwClvGXOunDOZxlgGA-XqqbwU0j8PIu-9iBMbzLGT4zT2ddshg-i4yvga3SZr4nHr0BTSXH3X0IIV5mzwHRj5HiTdFJtOfrfZWz8hK9aZMwan5xtj6Bh28krRg2rTszYE0ztAxIieQAYqEQPnebq7OskhAkwKnTGFN5GrCCrATuUx6GIE4AtVne5FZmP-r_cQcALrv6YV3q6_7"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-transparent to-transparent"></div>
+</div>
+<!-- Level Indicator Over Portrait -->
+<div class="absolute bottom-10 left-6 z-10 flex items-center gap-4">
+<div class="relative">
+<div class="w-16 h-16 rounded-full border-4 border-primary shadow-[0_0_15px_rgba(109,221,255,0.6)] flex items-center justify-center bg-surface">
+<span class="font-headline font-black text-xl italic text-white">99</span>
+</div>
+<div class="absolute -bottom-1 left-1/2 -translate-x-1/2 px-2 bg-primary text-surface-container-lowest font-headline font-bold text-[8px] rounded-full">LEVEL</div>
+</div>
+<div class="flex flex-col">
+<h3 class="font-headline font-black text-4xl text-white tracking-tighter uppercase italic leading-none drop-shadow-md">Cyber_Elite</h3>
+<p class="text-secondary font-headline font-bold text-xs uppercase tracking-widest mt-1">Global Top 0.1%</p>
+</div>
+</div>
+</div>
+<!-- Bottom Stats Bar -->
+<div class="h-28 bg-surface-container-high/80 backdrop-blur-md border-t border-white/10 p-6 flex justify-between items-center">
+<div class="flex flex-col items-center">
+<span class="text-white/40 font-headline font-bold text-[10px] uppercase tracking-widest">Win Rate</span>
+<span class="text-white font-headline font-black text-2xl italic leading-none">68.4%</span>
+</div>
+<div class="w-px h-8 bg-white/10"></div>
+<div class="flex flex-col items-center">
+<span class="text-white/40 font-headline font-bold text-[10px] uppercase tracking-widest">K/D Ratio</span>
+<span class="text-primary font-headline font-black text-2xl italic leading-none">2.45</span>
+</div>
+<div class="w-px h-8 bg-white/10"></div>
+<div class="flex flex-col items-center">
+<span class="text-white/40 font-headline font-bold text-[10px] uppercase tracking-widest">Total Earned</span>
+<span class="text-secondary font-headline font-black text-2xl italic leading-none">$14.2K</span>
+</div>
+</div>
+<!-- Brand Footer -->
+<div class="h-8 bg-primary flex items-center justify-center">
+<span class="font-headline font-black text-[10px] text-surface-container-lowest tracking-[0.5em] uppercase">ARENA.GG AUTHENTICATED</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Supporting Information Columns -->
+<div class="lg:col-span-7 flex flex-col gap-8 order-2 lg:order-2">
+<!-- Match History & Career Progress -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="glass-panel p-8 border border-white/5 rounded-sm">
+<div class="flex justify-between items-center mb-6">
+<h4 class="font-headline font-black text-xl uppercase italic tracking-wider">Recent Form</h4>
+<span class="text-primary material-symbols-outlined" data-icon="analytics">analytics</span>
+</div>
+<div class="space-y-4">
+<!-- Stat Strip -->
+<div class="bg-surface-container-highest p-4 border-l-2 border-primary flex justify-between items-center">
+<span class="font-headline font-bold text-xs uppercase text-white/60">Last 10 Games</span>
+<span class="font-headline font-black text-lg text-primary">W-W-L-W-W</span>
+</div>
+<div class="bg-surface-container-highest p-4 border-l-2 border-secondary flex justify-between items-center">
+<span class="font-headline font-bold text-xs uppercase text-white/60">Avg. Damage</span>
+<span class="font-headline font-black text-lg text-secondary">482.1</span>
+</div>
+<div class="bg-surface-container-highest p-4 border-l-2 border-white/20 flex justify-between items-center">
+<span class="font-headline font-bold text-xs uppercase text-white/60">Playtime</span>
+<span class="font-headline font-black text-lg text-white">1,420 HRS</span>
+</div>
+</div>
+</div>
+<div class="glass-panel p-8 border border-white/5 rounded-sm flex flex-col justify-center items-center text-center">
+<h4 class="font-headline font-black text-xl uppercase italic tracking-wider mb-6">Social Link</h4>
+<div class="bg-white p-3 rounded-lg shadow-[0_0_25px_rgba(255,255,255,0.1)] mb-4">
+<img alt="Profile QR Code" class="w-24 h-24" data-alt="Stylized modern QR code for a gaming profile with a cyan central logo icon, white background with sharp edges" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAM8GBrJ4kfALhnKp0CVGxqT6CG-a5cgQnI_W3YZmv4271i1-oGA5onQ6THTagDwYOTS16VDgeP3AnRNUfktXsbbFi48YZnIN36wdO96S72rICFp0JbVTMxh704XPFVWOuYa0VDLR5OF1HUFG3RwA1sBPQlOuMfjkl88fJwhxMQLFd2J4I22o3XTC3pVnjIhDjJ8dya3uKget4nNFu0PalInadUTf-lLkv9SkA_VSkuB1vYjCcdQdzZ61sMEvzVToWw9lHrHEOVUP0X"/>
+</div>
+<p class="text-[10px] font-headline font-bold text-white/40 uppercase tracking-widest mb-4">Scan to view full stats</p>
+<div class="flex gap-4">
+<button class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:bg-primary/20 transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="share">share</span>
+</button>
+<button class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:bg-primary/20 transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="link">link</span>
+</button>
+<button class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:bg-primary/20 transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="download">download</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Achievements Grid -->
+<div class="glass-panel p-8 border border-white/5 rounded-sm">
+<h4 class="font-headline font-black text-xl uppercase italic tracking-wider mb-8">Trophy Room</h4>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+<div class="flex flex-col items-center gap-2 group">
+<div class="w-20 h-20 rounded-full bg-surface-container-highest border border-white/5 flex items-center justify-center group-hover:border-primary transition-all">
+<span class="material-symbols-outlined text-3xl text-primary/40 group-hover:text-primary transition-all" data-icon="military_tech" style="font-variation-settings: 'FILL' 1;">military_tech</span>
+</div>
+<span class="font-headline font-bold text-[10px] uppercase text-white/60 text-center">Winter Open Finalist</span>
+</div>
+<div class="flex flex-col items-center gap-2 group">
+<div class="w-20 h-20 rounded-full bg-surface-container-highest border border-white/5 flex items-center justify-center group-hover:border-secondary transition-all">
+<span class="material-symbols-outlined text-3xl text-secondary/40 group-hover:text-secondary transition-all" data-icon="trophy" style="font-variation-settings: 'FILL' 1;">trophy</span>
+</div>
+<span class="font-headline font-bold text-[10px] uppercase text-white/60 text-center">Arena MVP</span>
+</div>
+<div class="flex flex-col items-center gap-2 group">
+<div class="w-20 h-20 rounded-full bg-surface-container-highest border border-white/5 flex items-center justify-center group-hover:border-tertiary transition-all">
+<span class="material-symbols-outlined text-3xl text-tertiary/40 group-hover:text-tertiary transition-all" data-icon="bolt" style="font-variation-settings: 'FILL' 1;">bolt</span>
+</div>
+<span class="font-headline font-bold text-[10px] uppercase text-white/60 text-center">Speed King</span>
+</div>
+<div class="flex flex-col items-center gap-2 group">
+<div class="w-20 h-20 rounded-full bg-surface-container-highest border border-white/5 flex items-center justify-center group-hover:border-white/40 transition-all">
+<span class="material-symbols-outlined text-3xl text-white/20 group-hover:text-white transition-all" data-icon="shield" style="font-variation-settings: 'FILL' 1;">shield</span>
+</div>
+<span class="font-headline font-bold text-[10px] uppercase text-white/60 text-center">Unstoppable</span>
+</div>
+</div>
+</div>
+<!-- Global Comparison Card -->
+<div class="bg-gradient-to-r from-primary/10 to-transparent p-8 border-l-4 border-primary rounded-sm flex items-center gap-8">
+<div class="flex-1">
+<h5 class="font-headline font-black text-2xl uppercase italic tracking-tight">Elite Tier Status</h5>
+<p class="text-white/60 font-body text-sm mt-2">You are performing better than 99.9% of active players in the European Region this season.</p>
+</div>
+<div class="text-right">
+<div class="text-primary font-headline font-black text-4xl italic">TOP 0.1%</div>
+<div class="text-[10px] font-headline font-bold uppercase tracking-widest text-white/40 mt-1">GLOBAL RANKING</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pb-6 pt-2 bg-[#131313]/95 backdrop-blur-lg border-t border-white/10 z-50">
+<a class="flex flex-col items-center justify-center text-white/40 p-2 hover:text-[#00D4FF] transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-['Inter'] text-[10px] uppercase font-bold mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-white/40 p-2 hover:text-[#00D4FF] transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+<span class="font-['Inter'] text-[10px] uppercase font-bold mt-1">Find</span>
+</a>
+<a class="flex flex-col items-center justify-center text-white/40 p-2 hover:text-[#00D4FF] transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="qr_code_scanner">qr_code_scanner</span>
+<span class="font-['Inter'] text-[10px] uppercase font-bold mt-1">Scan</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-[#00D4FF] text-[#0e0e0e] rounded-xl p-2 shadow-[0_0_15px_rgba(0,212,255,0.5)]" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-['Inter'] text-[10px] uppercase font-bold mt-1">Profile</span>
+</a>
+</nav>
+<!-- Floating UI Decoration Elements -->
+<div class="fixed top-24 right-12 w-64 h-64 bg-primary/5 rounded-full blur-[120px] pointer-events-none -z-10"></div>
+<div class="fixed bottom-24 left-12 w-96 h-96 bg-secondary/5 rounded-full blur-[150px] pointer-events-none -z-10"></div>
+</body></html>
